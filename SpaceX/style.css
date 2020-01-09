@@ -1,0 +1,72 @@
+html, body
+{
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    
+  
+}
+
+::-webkit-scrollbar {
+ width: 0;   
+}
+
+body
+{
+     overflow-y: scroll;
+     display: flex;
+     display: flex;
+     justify-content:center;
+     background-color: #000;
+     padding-bottom: 10vw;
+}
+
+div
+{
+    box-sizing: border-box;
+}
+
+#table
+{
+    display: flex;
+    flex-wrap: wrap;
+   
+    box-sizing: content-box;
+    text-align: center;
+
+    padding: 0.4vw;
+}
+
+.year
+{
+ color:#fff;
+ flex-basis: 100%; 
+ margin-top: 2vw; 
+ font-size: 2vw;
+}
+
+.event
+{
+    margin-top: 0.4vw;
+    margin-bottom: 0.4vw;
+    background-color:#fff;
+    border-radius: 0.5vw;
+    width: 9.8vw;
+    height: 14vw;
+    font-size: 2vw;
+    margin-left: 0.8vw;
+}
+
+
+.heavy
+{
+    width: 20.4vw;
+}
+
+
+
+.date
+{
+    padding: 0.2vw;
+}
+
