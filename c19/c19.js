@@ -37,7 +37,7 @@ let drawChart = (cols, rows, style = "", opt = {}) => {
 
     let id = `chart${ID++}`;
 
-    document.getElementById("charts").innerHTML += `<div class="chart card" id=${id} style="${style}"></div>`;
+    document.getElementById(opt.hostid || "charts").innerHTML += `<div class="chart card" id=${id} style="${style}"></div>`;
 
     var data = new google.visualization.DataTable();
 
@@ -93,7 +93,7 @@ let addStat = (c) => {
     1w=${c.drate(7)}%  2w=${c.drate(7 * 2)}%  3w=${c.drate(7 * 3)}%<br/>
     2double= ${c.days2double}d | c.lag=${c.lag}d | R0(7d)<1: <br>
     ${c.R0B(6, 1, 7)} ${c.R0B(5, 2, 7)} ${c.R0B(4, 3, 7)} ${c.R0B(3, 4, 7)} ${c.R0B(2, 5, 7)} ${c.R0B(1, 6, 7)} ${c.R0B(0, 7, 7)}<br/>
-    
+    Accel. (7d avg): ${(((c.new(c.l, 7) / 7) - (c.new(c.l - 7, 7) / 7)) / 7).toFixed(1)} cases/day²
     </div>`;
 
     // days<: ${c.la.join(' ')}
@@ -219,14 +219,15 @@ let drawpage = window.drawpage = (c) => {
 
         ])
         ,
-        `width: 400px;height: 500px;`,
+        `width: 350px;height: 500px;`,
         {
             lineWidth: 0,
             'vAxis.viewWindow.max': 2.0,
             'vAxis.viewWindow.min': 0,
             isStacked: true,
             'hAxis.gridlines.count': 11,
-            'hAxis.direction': -1
+            'hAxis.direction': -1,
+
 
         }
     );
@@ -272,7 +273,7 @@ let drawpage = window.drawpage = (c) => {
             ]
         )
         ,
-        `width: 450px;height: 500px;`,
+        `width: 400px;height: 500px;`,
         {
             'hAxis.format': 'MMM d',
             'vAxis.viewWindow.max': 3,
@@ -408,6 +409,30 @@ let drawpage = window.drawpage = (c) => {
         }
     );
 
+    drawChart2(
+        [
+            ['date', 'date'],
+            ['number', 'Accel. cases/day² (5d avg)', { color: 'gold' }],
+            ['number', '(7d avg)', { color: '#000' }],
+
+
+        ],
+        c.map(([date, act, rcv, dth], i) => c.sum(i) < 100 ? null : [
+            date,
+            ((c.new(i, 5) / 5) - (c.new(i - 5, 5) / 5)) / 5,
+            ((c.new(i, 7) / 7) - (c.new(i - 7, 7) / 7)) / 7,
+
+
+        ]),
+        `width:400px;height: 500px;`,
+        {
+            'hAxis.format': 'MMM d',
+            'vAxis.format': 'short',
+
+
+        }
+    );
+
     drawChart(
         [
             ['date', 'date'],
@@ -447,33 +472,7 @@ let drawpage = window.drawpage = (c) => {
 
 
 
-    drawChart2(
-        [
-            ['date', 'date'],
-            ['number', 'Total', { color: '#000' }],
-            ['number', 'Active', { color: 'red' }],
-            ['number', 'Closed', { color: 'green' }],
-            //['number', 'New7/7', { color: 'gray' }],
-            //['number', 'New', { color: 'gold', type: 'bars' }],
-        ],
-        c.map(([date, act, rcv, dth], i) => c.sum(i) < 100 ? null : [
-            date,
-            c.sum(i),
-            act,
-            c.closed(i),
-            //c.new(i, 7) / 7,
-            // c.sum(i) / (i + 1),
-            //c.new(i),
-        ]),
-        `width:400px;height: 500px;`,
-        {
-            'hAxis.format': 'MMM d',
-            'vAxis.format': 'short',
-            'vAxis.logScale2': true,
-            //'vAxis.viewWindow.min': 100
 
-        }
-    );
 
 
 
