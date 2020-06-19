@@ -79,6 +79,10 @@ let addStat = (c) => {
 
     let dd = c.dratediff();
 
+    let wa = c.map((v, i) => c.new(i, 7) / 7);
+
+    let max_i = wa.reduce((iMax, x, i, arr) => x >= arr[iMax] ? i : iMax, 0);
+
     document.getElementById("charts").innerHTML += `<div  id="stat" class="stat card" >
     <div id="selectholder"></div>
     ${c.label} ${JSON.stringify(c[c.l][0]).split("T")[0].substr(1)}
@@ -93,7 +97,8 @@ let addStat = (c) => {
     1w=${c.drate(7)}%  2w=${c.drate(7 * 2)}%  3w=${c.drate(7 * 3)}%<br/>
     2double= ${c.days2double}d | c.lag=${c.lag}d | R0(7d)<1: <br>
     ${c.R0B(6, 1, 7)} ${c.R0B(5, 2, 7)} ${c.R0B(4, 3, 7)} ${c.R0B(3, 4, 7)} ${c.R0B(2, 5, 7)} ${c.R0B(1, 6, 7)} ${c.R0B(0, 7, 7)}<br/>
-    Accel. (7d avg): ${(((c.new(c.l, 7) / 7) - (c.new(c.l - 7, 7) / 7)) / 7).toFixed(1)} cases/day²
+    Accel. (7d avg): ${(((c.new(c.l, 7) / 7) - (c.new(c.l - 7, 7) / 7)) / 7).toFixed(1)} cases/day²<br/>
+    Peak day (7d avg): ${JSON.stringify(c[max_i][0]).split("T")[0].substr(1)}
     </div>`;
 
     // days<: ${c.la.join(' ')}
@@ -185,7 +190,7 @@ let addcasesTable = (c) => {
 
 let drawChart2 = _ => { };
 
-let drawpage = window.drawpage = (c) => {
+let drawpage = window.drawpage = (c, width = 380) => {
 
 
     let inc = 5 //$.incubation;
@@ -219,7 +224,7 @@ let drawpage = window.drawpage = (c) => {
 
         ])
         ,
-        `width: 350px;height: 500px;`,
+        `width: ${width}px;height: 500px;`,
         {
             lineWidth: 0,
             'vAxis.viewWindow.max': 2.0,
@@ -273,7 +278,7 @@ let drawpage = window.drawpage = (c) => {
             ]
         )
         ,
-        `width: 400px;height: 500px;`,
+        `width: ${width}px;height: 500px;`,
         {
             'hAxis.format': 'MMM d',
             'vAxis.viewWindow.max': 3,
@@ -289,43 +294,7 @@ let drawpage = window.drawpage = (c) => {
 
     let n = c.new(0);
 
-    drawChart2(
-        [
-            //['number', 'Total'],
-            ['date', 'date'],
-            // ...(Array(14).fill(0).map((_, i) =>
-            //     ['number', `New${i + 1}`, { color: '#ccc', visibleInLegend: false }]
-            // )),
-            // ['number', 'New7/7', { color: '#444' }],
-            ['number', '', { color: 'red', visibleInLegend: false }],
-            ['number', 'x', { color: 'green', visibleInLegend: false }],
-            ['number', 'New%', { color: '#eee' }],
-            ['number', 'New% 5d RA', { color: '#999' }],
-            ['number', 'New% 7d RA', { color: '#000' }],
 
-        ],
-        c.map(([date, act, rcv, dth], i) => [
-            //c.sum(i),
-            date,
-            // c.new(i, 7) / 7,
-            0.05,
-            0.01,
-            c.newRatio(i),
-            c.newRatio(i, 5),
-            c.newRatio(i, 7),
-
-
-        ]),
-        `width:450px;height: 500px;`,
-        {
-            //'hAxis.logScale': true,
-            //'vAxis.logScale': true,
-            'hAxis.format': 'MMM d',
-            'vAxis.format': 'percent',
-            'vAxis.viewWindow.max': 0.15
-
-        }
-    );
 
 
     drawChart(
@@ -354,7 +323,7 @@ let drawpage = window.drawpage = (c) => {
             ]
         )
         ,
-        `width: 450px;height: 500px;`,
+        `width: ${width}px;height: 500px;`,
         {
             'hAxis.format': 'MMM d',
             'vAxis.viewWindow.max': 70,
@@ -398,7 +367,7 @@ let drawpage = window.drawpage = (c) => {
             ]
         )
         ,
-        `width: 450px;height:500px;`,
+        `width: ${width}px;height:500px;`,
         {
             'hAxis.format': 'MMM d',
             'vAxis.format': 'short',
@@ -409,7 +378,7 @@ let drawpage = window.drawpage = (c) => {
         }
     );
 
-    drawChart2(
+    drawChart(
         [
             ['date', 'date'],
             ['number', 'Accel. cases/day² (5d avg)', { color: 'gold' }],
@@ -424,7 +393,7 @@ let drawpage = window.drawpage = (c) => {
 
 
         ]),
-        `width:400px;height: 500px;`,
+        `width: ${width}px;height: 500px;`,
         {
             'hAxis.format': 'MMM d',
             'vAxis.format': 'short',
