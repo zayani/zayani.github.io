@@ -83,6 +83,16 @@ let addStat = (c) => {
 
     let max_i = wa.reduce((iMax, x, i, arr) => x >= arr[iMax] ? i : iMax, 0);
 
+    let max_d = c[max_i][0];
+
+    let max_diff_d = (c[c.l][0] - max_d) / 864e5;
+
+    let wdi = c.map((v, i) => ((c[i][3] - (c[i - 7] ? c[i - 7][3] : 0)) / 7));
+
+    let max_di = wdi.reduce((iMax, x, i, arr) => x >= arr[iMax] ? i : iMax, 0);
+
+    let max_diff_di = (c[c.l][0] - max_di) / 864e5;
+
     document.getElementById("charts").innerHTML += `<div  id="stat" class="stat card" >
     <div id="selectholder"></div>
     ${c.label} ${JSON.stringify(c[c.l][0]).split("T")[0].substr(1)}
@@ -94,11 +104,14 @@ let addStat = (c) => {
     | 💀${c[c.l][3].toLocaleString()}
      (${(c[c.l][3] / c.sum(c.l) * 100).toFixed(2)}%)<br>
     day ${c.l + 1} <b>+${c.df(c.new(c.l))}</b> (${c.drate(1)}%) | daily avg: <br>
-    1w=${c.drate(7)}%  2w=${c.drate(7 * 2)}%  3w=${c.drate(7 * 3)}%<br/>
-    2double= ${c.days2double}d | c.lag=${c.lag}d | R0(7d)<1: <br>
-    ${c.R0B(6, 1, 7)} ${c.R0B(5, 2, 7)} ${c.R0B(4, 3, 7)} ${c.R0B(3, 4, 7)} ${c.R0B(2, 5, 7)} ${c.R0B(1, 6, 7)} ${c.R0B(0, 7, 7)}<br/>
-    Accel. (7d avg): ${(((c.new(c.l, 7) / 7) - (c.new(c.l - 7, 7) / 7)) / 7).toFixed(1)} cases/day²<br/>
-    Peak day (7d avg): ${JSON.stringify(c[max_i][0]).split("T")[0].substr(1)}
+    1w=${c.drate(7)}%  2w=${c.drate(7 * 2)}%  3w=${c.drate(7 * 3)}%<hr>
+    2double= ${c.days2double}d | c.lag=${c.lag}d | R0<sup>*</sup><1:<br/> 
+    ${c.R0B(6, 1, 7)} ${c.R0B(5, 2, 7)} ${c.R0B(4, 3, 7)} ${c.R0B(3, 4, 7)} ${c.R0B(2, 5, 7)} ${c.R0B(1, 6, 7)} ${c.R0B(0, 7, 7)}<hr>
+    Accel.<sup>*</sup>: ${(((c.new(c.l, 7) / 7) - (c.new(c.l - 7, 7) / 7)) / 7).toFixed(1)} cases/day²<br/>
+    Peak death<sup>*</sup>: ${JSON.stringify(c[max_di][0]).split("T")[0].substr(1)} @${wdi[max_di].toFixed(1)}<br/>
+    ${ max_diff_d >= 1 ? `Potential Peak day<sup>*</sup>:<br/>${JSON.stringify(c[max_i][0]).split("T")[0].substr(1)}<sup>${max_diff_d}d ago</sup> | since ${(-1 * (100 - (wa[wa.length - 1] / wa[max_i] * 100))).toFixed(2)}%` : ``}
+    <hr>
+    * 7 days rolling average
     </div>`;
 
     // days<: ${c.la.join(' ')}
@@ -215,7 +228,7 @@ let drawpage = window.drawpage = (c, width = 380) => {
 
 
         ],
-        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map(n => [
+        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28].map(n => [
             n,
             c.R0(c.l, n, n),
             1,
@@ -230,7 +243,7 @@ let drawpage = window.drawpage = (c, width = 380) => {
             'vAxis.viewWindow.max': 2.0,
             'vAxis.viewWindow.min': 0,
             isStacked: true,
-            'hAxis.gridlines.count': 11,
+            'hAxis.gridlines.count': 5,
             'hAxis.direction': -1,
 
 
@@ -252,10 +265,11 @@ let drawpage = window.drawpage = (c, width = 380) => {
             //         ['number', `R0(${n}d)`, { color: `#eee`, visibleInLegend: false }]),
 
             // ['number', 'R0(7d death)', { color: 'pink' }],
-            ['number', 'R0(21d)', { color: 'blue' }],
-            ['number', 'R0(14d)', { color: 'green' }],
+            ['number', 'R0(28d)', { color: '#000' }],
+            ['number', '(21d)', { color: 'blue' }],
+            ['number', '(14d)', { color: 'green' }],
 
-            ['number', 'R0(7d)', { color: 'orange' }],
+            ['number', '(7d)', { color: 'orange' }],
 
 
         ],
@@ -269,6 +283,7 @@ let drawpage = window.drawpage = (c, width = 380) => {
                 // ...Array(17).fill().map((v, i) => i + 5)
                 //     .map(n => c.R0(i, n, n)),
                 // c.newDeath(i, 7) / c.newDeath(i - 7, 7),
+                info(c.R0(i, 28, 28), i),
                 info(c.R0(i, 21, 21), i),
                 //c.R0(i, 21, 21),
                 info(c.R0(i, 14, 14), i),
@@ -339,6 +354,12 @@ let drawpage = window.drawpage = (c, width = 380) => {
     let max = _ => Math.max(...c.map((v, i) => c.new(i, 7) / 7),
         ...c.map((v, i) => c.new(i, 5) / 5));
 
+    let mapv = x => (
+        x > 0.1 ? 1 :
+            x > 0.05 ? 10 :
+                x > 0.01 ? 20 : 50
+    )
+
 
     drawChart(
         [
@@ -352,6 +373,7 @@ let drawpage = window.drawpage = (c, width = 380) => {
                 { color: '#fff', type: 'area', lineWidth: 0, visibleInLegend: false }],
             ['number', 'pred max',
                 { color: '#8ff', type: 'area', lineWidth: 0, visibleInLegend: false }],
+            ['number', 'death7', { color: 'red', lineWidth: 1, targetAxisIndex: 0 }],
 
         ],
         c.map(([date, act, rcv, dth], i) =>
@@ -363,7 +385,7 @@ let drawpage = window.drawpage = (c, width = 380) => {
                 //info(c.new(i, 28) / 28, i),
                 c.info && c.info.pred_min,
                 c.info && { v: c.info.pred_max - c.info.pred_min, f: c.info.pred_max + '' },
-
+                (c[i][3] - c[i - 7][3])
             ]
         )
         ,
@@ -372,9 +394,11 @@ let drawpage = window.drawpage = (c, width = 380) => {
             'hAxis.format': 'MMM d',
             'vAxis.format': 'short',
             'vAxis.viewWindow.min': 0,
-            'vAxis.viewWindow.max': max() * 1.1,
+            'vAxes.0.viewWindow.max': max() * 1.25,
             isStacked: true,
-
+            'vAxes.1.viewWindow.max': max() * 1.1 /
+                mapv(c[c.l][3] / c.sum(c.l)),
+            'vAxes.1.gridlines.count': 0
         }
     );
 
