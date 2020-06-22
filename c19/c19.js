@@ -109,7 +109,7 @@ let addStat = (c) => {
     ${c.R0B(6, 1, 7)} ${c.R0B(5, 2, 7)} ${c.R0B(4, 3, 7)} ${c.R0B(3, 4, 7)} ${c.R0B(2, 5, 7)} ${c.R0B(1, 6, 7)} ${c.R0B(0, 7, 7)}<hr>
     Accel.<sup>*</sup>: ${(((c.new(c.l, 7) / 7) - (c.new(c.l - 7, 7) / 7)) / 7).toFixed(1)} cases/day²<br/>
     Peak death<sup>*</sup>: ${JSON.stringify(c[max_di][0]).split("T")[0].substr(1)} @${wdi[max_di].toFixed(1)}<br/>
-    ${ max_diff_d >= 1 ? `Potential Peak day<sup>*</sup>:<br/>${JSON.stringify(c[max_i][0]).split("T")[0].substr(1)}<sup>${max_diff_d}d ago</sup> | since ${(-1 * (100 - (wa[wa.length - 1] / wa[max_i] * 100))).toFixed(2)}%` : ``}
+    ${ max_diff_d >= 1 ? `Potential Peak day<sup>*</sup>:<br/>${JSON.stringify(c[max_i][0]).split("T")[0].substr(1)}<sup>${max_diff_d}d ago</sup> @${Math.round(wa[max_i])}<br>since ${(-1 * (100 - (wa[wa.length - 1] / wa[max_i] * 100))).toFixed(2)}%` : ``}
     <hr>
     * 7 days rolling average
     </div>`;
@@ -366,14 +366,14 @@ let drawpage = window.drawpage = (c, width = 380) => {
             ['date', 'date'],
 
             ['number', 'new', { color: 'gold', type: 'bars' }],
-            ['number', 'new5/5', { color: '#aaa' }],
-            ['number', 'new7/7', { color: '#444' }],
+            ['number', '5d RA', { color: '#aaa' }],
+            ['number', '7d RA', { color: '#444' }],
             //['number', 'new28/28', { color: '#FF00FF' }],
             ['number', 'pred min',
                 { color: '#fff', type: 'area', lineWidth: 0, visibleInLegend: false }],
             ['number', 'pred max',
                 { color: '#8ff', type: 'area', lineWidth: 0, visibleInLegend: false }],
-            ['number', 'death7', { color: 'red', lineWidth: 1, targetAxisIndex: 0 }],
+            ['number', 'death 7d RA', { color: 'red', lineWidth: 1, targetAxisIndex: 0 }],
 
         ],
         c.map(([date, act, rcv, dth], i) =>
@@ -385,7 +385,7 @@ let drawpage = window.drawpage = (c, width = 380) => {
                 //info(c.new(i, 28) / 28, i),
                 c.info && c.info.pred_min,
                 c.info && { v: c.info.pred_max - c.info.pred_min, f: c.info.pred_max + '' },
-                (c[i][3] - c[i - 7][3])
+                (c[i][3] - c[i - 7][3]) / 7
             ]
         )
         ,
@@ -689,6 +689,3 @@ let combineCases = (name, keys) => {
     console.log('GCC', cases[name]);
 
 }
-
-
-
