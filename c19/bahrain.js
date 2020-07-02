@@ -1,5 +1,6 @@
 
 let cases = [
+
     //Feb 24-28
     [2, 0, 0], [23, 0, 0], [33, 0, 0], [33, 0, 0], [38, 0, 0],
     //Feb 29-Mar 04
@@ -71,21 +72,41 @@ let cases = [
     //JUN 24
     [5525, 17977, 68, 38, 162, 502763],
     //JUN 25
-    [5509, 18501, 71, 38, 136, 511458]
+    [5509, 18501, 71, 38, 136, 511458],
+    //JUN 26
+    [5595, 19137, 73, 48, 94, 521101],
+    //JUN 27
+    [5408, 19781, 78, 42, 78, 529242],
+    //JUN 28
+    [5105, 20517, 83, 41, 74, 536516],
+    //JUN 29
+    [5227, 20928, 84, 42, 79, 545125],
+    //JUN 30
+    [5340, 21331, 87, 50, 86, 554239],
+    //JUL 01
+    [5374, 21948, 92, 52, 84, 564365]
+
+
+
 
 ]
 
+let ArrMul = (v, n = 0) =>
+    Array.isArray(v) ? v : new Array(n).fill()
+        .map((x, i) => v);
 
 
 cases.day0 = new Date(`2020-02-24`);
-cases.info = { acticap2: 8511, pred_min: 322, pred_max: 497 };
+cases.info = { acticap2: 8511, pred_min: 394, pred_max: 619, weekAim: 478 };
 
 
 
-[].forEach((n) => {
+ArrMul(500, 0).forEach((n) => {
     let [a, ...r] = cases[cases.length - 1];
     cases.push([a + n, ...r]);
 });
+
+
 
 
 export default cases;

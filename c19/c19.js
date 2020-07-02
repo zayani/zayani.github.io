@@ -99,7 +99,8 @@ let addStat = (c) => {
 
     document.getElementById("charts").innerHTML += `<div  id="stat" class="stat card" >
     <div id="selectholder"></div>
-    ${c.label} ${JSON.stringify(c[c.l][0]).split("T")[0].substr(1)}
+    ${c.label} 
+    ${($.date(c[c.l][0], 0) + "").split(" ").slice(0, 4).join(" ")}
     <br>Σ<b>${c.sum(c.l).toLocaleString()}</b> | 🤒${c[c.l][1].toLocaleString()} 
     (${(c[c.l][1] / c.sum(c.l) * 100).toFixed(1)}%)
     <br>
@@ -109,13 +110,18 @@ let addStat = (c) => {
      (${(c[c.l][3] / c.sum(c.l) * 100).toFixed(2)}%)<br>
     day ${c.l + 1} <b>+${c.df(c.new(c.l))}</b> (${c.drate(1)}%) | daily avg: <br>
     1w=${c.drate(7)}%  2w=${c.drate(7 * 2)}%  3w=${c.drate(7 * 3)}%<hr>
-    2double= ${c.days2double}d | c.lag=${c.lag}d | R0<sup>*</sup><1:<br/> 
-    ${c.R0B(6, 1, 7)} ${c.R0B(5, 2, 7)} ${c.R0B(4, 3, 7)} ${c.R0B(3, 4, 7)} ${c.R0B(2, 5, 7)} ${c.R0B(1, 6, 7)} ${c.R0B(0, 7, 7)}<hr>
-
+    2double= ${c.days2double}d | c.lag=${c.lag}d <br/> 
+    <hr>
+    <sub>R0<sup>*</sup><1:
+    ${c.R0B(6, 1, 7)} ${c.R0B(5, 2, 7)} ${c.R0B(4, 3, 7)} ${c.R0B(3, 4, 7)} ${c.R0B(2, 5, 7)} ${c.R0B(1, 6, 7)} ${c.R0B(0, 7, 7)}</sub>
+    <hr>
+    <sub>R0<sup>**</sup><1:
+    ${c.R0B(13, 1, 14)} ${c.R0B(12, 2, 14)} ${c.R0B(11, 3, 14)} ${c.R0B(10, 4, 14)} ${c.R0B(9, 5, 14)} ${c.R0B(8, 6, 14)} ${c.R0B(7, 7, 14)}</sub>
+    <hr>
     Peak death<sup>*</sup>:<br>${JSON.stringify(c[max_di][0]).split("T")[0].substr(1)}<sup>${max_diff_di}d ago</sup> @${wdi[max_di].toFixed(1)}<br/>
     ${ max_diff_d >= 1 ? `Peak day<sup>*</sup>:<br/>${JSON.stringify(c[max_i][0]).split("T")[0].substr(1)}<sup>${max_diff_d}d ago</sup> @${Math.round(wa[max_i])}<br>since ${(-1 * (100 - (wa[wa.length - 1] / wa[max_i] * 100))).toFixed(2)}%` : ``}
     <hr>
-    * 7 days rolling average
+    *=7  **=14 (days rolling average)
     </div>`;
 
     // days<: ${c.la.join(' ')}
@@ -172,6 +178,8 @@ let addcasesTable = (c) => {
 
         if (c.length - (11 * 7) > i) { psum = wsum; continue; }
 
+        let bi = i + 6 < c.l ? i + 6 : c.l;
+
         //rgb(${v(n)})
         //v(n)[1] > 128 ? '#000' : '#fff'
 
@@ -183,7 +191,13 @@ let addcasesTable = (c) => {
             style='background: ${x == null ? "#fff" : colors[C]}; 
             color: ${C < 3 ? "#fff" : "#000"}'
             
-            >${x == null ? '' : c.df(x) + `<div>
+            >${x == null ? '' : c.df(x) +
+                /*' ' +
+                (c[n - 1] && c[n] && c[n + 1] ?
+                    ~~((c.new(n - 1) + c.new(n) + c.new(n + 1)) / 3)
+                    : x)
+                +*/
+                `<div>
             ✓${r}<br>-${d}
             ${
                 ""//JSON.stringify($.date(c[0][0], n)).split("T")[0].split("2020-")[1]
@@ -191,7 +205,13 @@ let addcasesTable = (c) => {
         ),
         `W${w} ${psum ? (i + 6 > c.l ? (wsum * 7 / (c.length % 7)) / psum : wsum / psum).toFixed(2) : ''}<br/><b>${c.df(wsum)} 
         
-        ${c.df(Math.round(i + 6 > c.l ? wsum / (c.length % 7) : wsum / 7))}</b>`]);
+        ${c.df(Math.round(i + 6 > c.l ? wsum / (c.length % 7) : wsum / 7))}</b><br/><sub>
+        ✓${
+        c.df(c[bi][2] - (c[i - 1] || [, , 0])[2])
+        } 
+        -${
+        c.df(c[bi][3] - (c[i - 1] || [, , 0])[3])
+        }</sub>`]);
 
         psum = wsum;
     }
@@ -271,11 +291,13 @@ let drawpage = window.drawpage = (c, width = 380) => {
             //         ['number', `R0(${n}d)`, { color: `#eee`, visibleInLegend: false }]),
 
             // ['number', 'R0(7d death)', { color: 'pink' }],
+            ['number', '(5d)', { color: '#eee', visibleInLegend: false }],
             ['number', 'R0(28d)', { color: '#000' }],
             ['number', '(21d)', { color: 'blue' }],
             ['number', '(14d)', { color: 'green' }],
 
             ['number', '(7d)', { color: 'orange' }],
+
 
 
         ],
@@ -289,11 +311,13 @@ let drawpage = window.drawpage = (c, width = 380) => {
                 // ...Array(17).fill().map((v, i) => i + 5)
                 //     .map(n => c.R0(i, n, n)),
                 // c.newDeath(i, 7) / c.newDeath(i - 7, 7),
+                info(c.R0(i, 5, 5), i),
                 info(c.R0(i, 28, 28), i),
                 info(c.R0(i, 21, 21), i),
                 //c.R0(i, 21, 21),
                 info(c.R0(i, 14, 14), i),
                 info(c.R0(i, 7, 7), i),
+
 
 
             ]
@@ -323,8 +347,8 @@ let drawpage = window.drawpage = (c, width = 380) => {
             ['date', 'date'],
             ['number', 'too fast', { color: '#faa', type: 'area', visibleInLegend: false }],
             ['number', 'fast', { color: '#ffa', type: 'area', visibleInLegend: false }],
-            ['number', 'days to double (death)', { color: 'red' }],
-            ['number', '(7d RA trend)', { color: '#aaa' }],
+            // ['number', ' (death)', { color: 'red' }],
+            ['number', 'days to double (7d RA trend)', { color: '#aaa' }],
             ['number', '(total)', { color: '#444' }],
 
 
@@ -335,7 +359,7 @@ let drawpage = window.drawpage = (c, width = 380) => {
                 date,
                 14,
                 28,
-                c.days2doubleDeath(i),
+                // c.days2doubleDeath(i),
                 c.dratedouble(7, i),
                 c.days2doubleC(i),
 
@@ -368,20 +392,28 @@ let drawpage = window.drawpage = (c, width = 380) => {
 
     let _1_3 = 1 / 3;
 
+    let max_up = 0;
+
     let newchart = (cond, log) => drawChart(
         [
             ['date', 'date'],
 
             ['number', 'new', { color: 'gold', type: 'bars' }],
-            ['number', '5d/5', { color: '#aaa' }],
-            ['number', '7d/7', { color: '#444' }],
+
+            ['number', '14d/14', { color: 'green' }],
+            ['number', '7d/7', { color: '#000' }],
+
+
             //['number', '14d', { color: 'green' }],
             //['number', 'new28/28', { color: '#FF00FF' }],
             ['number', 'pred min',
                 { color: '#fff', type: 'area', lineWidth: 0, visibleInLegend: false }],
             ['number', 'pred max',
                 { color: '#8ff', type: 'area', lineWidth: 0, visibleInLegend: false }],
-            ['number', '💀7d', { color: 'red', lineWidth: 2, targetAxisIndex: 0 }],
+            ['number', 'Week Aim',
+                { color: 'brown', lineWidth: 1, visibleInLegend: false }],
+            ['number', '💀7d', { color: 'red', lineWidth: 1, targetAxisIndex: 0 }],
+            ['number', 'Critical', { color: 'darkred', lineWidth: 1, visibleInLegend: false }],
 
 
         ],
@@ -389,13 +421,18 @@ let drawpage = window.drawpage = (c, width = 380) => {
             cond(i) ? [
                 date,
                 info(c.new(i), i),
-                info(c.new(i, 5) / 5, i),
-                info(c.new(i, 7) / 7, i),
+
+                info(c.new(i, 14) / 14, i),
+                (c.new(i, 7) / 7),
+                //c.new(i, 7) / 7 >= max_up ?  info(max_up = c.new(i, 7) / 7, i) : null,
+
                 //  (c.new(i, 5) / 5) < (c.new(i, 14) / 14) &&    (c.new(i, 7) / 7) < (c.new(i, 14) / 14) ? info(c.new(i, 14) / 14, i) : null,
                 //info(c.new(i, 28) / 28, i),
                 c.info && c.info.pred_min,
                 c.info && { v: c.info.pred_max - c.info.pred_min, f: c.info.pred_max + '' },
+                c.info && c.info.weekAim,
                 (c[i][3] - (c[i - 7] || [])[3]),
+                c[i][4]
 
             ] : null
         )
@@ -410,17 +447,19 @@ let drawpage = window.drawpage = (c, width = 380) => {
             isStacked: true,
             'vAxes.1.gridlines.count': 0,
             'vAxes.1.viewWindow.max': max * 1.5 / 10,
+            interpolateNulls: true
         }
     );
 
 
-    newchart(i => i >= c.l - 60);
+    newchart(i => i >= c.l - 28);
 
-    drawChart(
+    drawChart2(
         [
             ['date', 'date'],
-            ['number', 'Accel. cases/day² (5d avg)', { color: 'gold' }],
-            ['number', '(7d avg)', { color: '#000' }],
+            ['number', 'Accel. cases/day² (5d avg)', { color: '#eee' }],
+            ['number', '(7d avg)', { color: 'gold' }],
+            ['number', '(14d avg)', { color: 'green' }],
 
 
         ],
@@ -428,6 +467,7 @@ let drawpage = window.drawpage = (c, width = 380) => {
             date,
             ((c.new(i, 5) / 5) - (c.new(i - 5, 5) / 5)) / 5,
             ((c.new(i, 7) / 7) - (c.new(i - 7, 7) / 7)) / 7,
+            ((c.new(i, 14) / 14) - (c.new(i - 14, 14) / 14)) / 14,
 
 
         ]),
@@ -450,6 +490,7 @@ let drawpage = window.drawpage = (c, width = 380) => {
             ['number', 'Active', { color: 'gold', type: 'area' }],
             ['number', 'Recoverd', { color: 'green', type: 'area' }],
             ['number', 'Death', { color: 'red', type: 'area' }],
+            ['number', 'Peak active', { color: 'brown', lineWidth: 1, visibleInLegend: false }],
             //['number', 'Total', { color: '#000', lineWidth: 0.1, visibleInLegend: false }],
             ['number', 'cap', { color: '#4A235A', lineWidth: 1, visibleInLegend: false }],
             ['number', '50%', { color: 'blue', lineWidth: 1, targetAxisIndex: 1, visibleInLegend: false }],
@@ -460,6 +501,7 @@ let drawpage = window.drawpage = (c, width = 380) => {
             info(act, i),
             info(rcv, i),
             info(dth, i),
+            Math.max(...c.map(x => x[1])),
             //c.sum(i),
             c.info && c.info.acticap,
             0.5
@@ -703,6 +745,8 @@ let combineCases = (name, keys) => {
 
     $.addCasesFunctions(cases[name]);
 
-    console.log('GCC', cases[name]);
+    //console.log('GCC', cases[name]);
 
 }
+
+
