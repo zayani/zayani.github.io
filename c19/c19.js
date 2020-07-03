@@ -381,8 +381,10 @@ let drawpage = window.drawpage = (c, width = 380) => {
 
     let ca = c.map((v, i) => (c.new(i) - c.new(i - 1)));
 
-    let max = _ => Math.max(...c.map((v, i) => c.new(i, 7) / 7),
-        ...c.map((v, i) => c.new(i, 5) / 5));
+    let max = (_ => Math.max(...c.map((v, i) => c.new(i, 7) / 7),
+        ...c.map((v, i) => c.new(i, 5) / 5)))();
+
+
 
     let mapv = x => (
         x > 0.1 ? 1 :
@@ -394,7 +396,7 @@ let drawpage = window.drawpage = (c, width = 380) => {
 
     let max_up = 0;
 
-    let newchart = (cond, log) => drawChart(
+    let newchart = (cond, max, log) => drawChart(
         [
             ['date', 'date'],
 
@@ -443,10 +445,10 @@ let drawpage = window.drawpage = (c, width = 380) => {
             'vAxis.format': 'short',
             'vAxis.viewWindow.min': 0,
             'vAxis.logScale': log,
-            'vAxes.0.viewWindow.max': max * 1.5,
+            'vAxis.viewWindow.max': max,
             isStacked: true,
             'vAxes.1.gridlines.count': 0,
-            'vAxes.1.viewWindow.max': max * 1.5 / 10,
+
             interpolateNulls: true
         }
     );
@@ -481,7 +483,7 @@ let drawpage = window.drawpage = (c, width = 380) => {
     );
 
 
-    newchart(i => c.sum(i) > 100);
+    newchart(i => c.sum(i) > 100, max);
 
     drawChart(
         [
