@@ -485,6 +485,45 @@ let drawpage = window.drawpage = (c, width = 380) => {
 
     newchart(i => c.sum(i) > 100, max);
 
+
+    drawChart(
+        [
+
+            // ['number', 'New7', { color: '#666' }],
+
+            ['number', '', { color: 'blue', visibleInLegend: false }],
+            ['number', '', { color: 'blue', visibleInLegend: false }],
+
+
+
+
+        ],
+        c.map(([date, act, rcv, dth], i) => i < 1 ? null : [
+            act,
+            c.new(i, 7) / 7,
+
+
+
+
+        ]),
+        `width:450px;height: 500px;`,
+        {
+            //'hAxis.format': 'MMM d',
+            'vAxis.format': 'short',
+            isStacked: true,
+            lineWidth: 1,
+
+            'vAxes.1.format': 'percent',
+            'vAxes.1.gridlines.count': 10,
+
+            'vAxes.1.gridlines.color': '#fff'
+
+        }
+    );
+
+
+
+
     drawChart(
         [
             ['date', 'date'],
@@ -515,6 +554,7 @@ let drawpage = window.drawpage = (c, width = 380) => {
             isStacked: true,
             lineWidth: 0,
             'vAxes.0.viewWindow.max': c.sum(c.l) * 1.05,
+
             'vAxes.1.viewWindow.max': 1.05,
             'vAxes.1.format': 'percent',
             'vAxes.1.gridlines.count': 10,
