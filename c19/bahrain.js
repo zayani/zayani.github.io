@@ -93,7 +93,7 @@ let cases = [
     //JUL 05
     [4621, 24649, 97, 45, 53, 602151],
     //JUL 06
-
+    [4545, 25178, 98, 54, 39, 612096]
 
 ]
 
@@ -103,7 +103,7 @@ let ArrMul = (v, n = 0) =>
 
 
 cases.day0 = new Date(`2020-02-24`);
-cases.info = { acticap2: 8511, pred_min: 394, pred_max: 619 };
+cases.info = { acticap2: 8511, pred_min: 419, pred_max: 575 };
 
 
 
