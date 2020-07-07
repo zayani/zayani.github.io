@@ -302,7 +302,7 @@ let drawpage = window.drawpage = (c, width = 380) => {
 
         ],
         c.map(([date, act, rcv, dth], i) =>
-            i <= c.l - (7 * 6) ? null : [
+            i <= c.l - (7 * 4) ? null : [
                 date,
                 1,
                 0.25,
@@ -327,7 +327,7 @@ let drawpage = window.drawpage = (c, width = 380) => {
         {
             'hAxis.format': 'MMM d',
             'vAxis.viewWindow.max': 2,
-            'vAxis.viewWindow.min': 0,
+            'vAxis.viewWindow.min': 0.5,
 
             isStacked: true,
         }
@@ -444,7 +444,7 @@ let drawpage = window.drawpage = (c, width = 380) => {
             'hAxis.format': 'MMM d',
             'vAxis.format': 'short',
             'vAxis.viewWindow.min': 0,
-            'vAxis.logScale': log,
+            'vAxis.logScale': 0,
             'vAxis.viewWindow.max': max,
             isStacked: true,
             'vAxes.1.gridlines.count': 0,
@@ -499,8 +499,9 @@ let drawpage = window.drawpage = (c, width = 380) => {
 
         ],
         c.map(([date, act, rcv, dth], i) => i < 1 ? null : [
-            act,
             c.new(i, 7) / 7,
+            act,
+
 
 
 
