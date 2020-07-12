@@ -104,6 +104,8 @@ let cases = [
     [4722, 27213, 104, 53, 84, 649020],
     //JUL 11
     [4538, 27828, 104, 53, 83, 656659],
+    //JUL 12
+    [4408, 28425, 108, 47, 118, 666248]
 
 ]
 
@@ -117,7 +119,7 @@ cases.info = { acticap2: 8511, pred_min: 419, pred_max: 575 };
 
 
 
-ArrMul(490, 0).forEach((n) => {
+ArrMul(450, 0).forEach((n) => {
     let [a, ...r] = cases[cases.length - 1];
     cases.push([a + n, ...r]);
 });
