@@ -77,6 +77,11 @@ let pred = (i) =>
 
 let addStat = (c) => {
 
+    for (let i = 1, j = c.max_nday_len = 0; i <= 28; i++) {
+        for (j = c.l; j > 0 && c.R0(j, i, i) < 1; j--);
+        if (c.l - j >= c.max_nday_len) [c.max_nday, c.max_nday_len] = [i, c.l - j];
+    }
+
     let dd = c.dratediff();
 
     let wa = c.map((v, i) => c.new(i, 7) / 7);
@@ -115,8 +120,7 @@ let addStat = (c) => {
     <sub>R0<sup>*</sup><1:
     ${c.R0B(6, 1, 7)} ${c.R0B(5, 2, 7)} ${c.R0B(4, 3, 7)} ${c.R0B(3, 4, 7)} ${c.R0B(2, 5, 7)} ${c.R0B(1, 6, 7)} ${c.R0B(0, 7, 7)}</sub>
     <hr>
-    <sub>R0<sup>**</sup><1:
-    ${c.R0B(13, 1, 14)} ${c.R0B(12, 2, 14)} ${c.R0B(11, 3, 14)} ${c.R0B(10, 4, 14)} ${c.R0B(9, 5, 14)} ${c.R0B(8, 6, 14)} ${c.R0B(7, 7, 14)}</sub>
+    <sup>R0(${c.max_nday})<1 for ${c.max_nday_len} days</sup>
     <hr>
     Peak death<sup>*</sup>:<br>${JSON.stringify(c[max_di][0]).split("T")[0].substr(1)}<sup>${max_diff_di}d ago</sup> @${wdi[max_di].toFixed(1)}<br/>
     ${ max_diff_d >= 1 ? `Peak day<sup>*</sup>:<br/>${JSON.stringify(c[max_i][0]).split("T")[0].substr(1)}<sup>${max_diff_d}d ago</sup> @${Math.round(wa[max_i])}<br>since ${(-1 * (100 - (wa[wa.length - 1] / wa[max_i] * 100))).toFixed(2)}%` : ``}
@@ -293,10 +297,10 @@ let drawpage = window.drawpage = (c, width = 380) => {
             // ['number', 'R0(7d death)', { color: 'pink' }],
             ['number', '(5d)', { color: '#eee', visibleInLegend: false }],
             ['number', 'R0(28d)', { color: '#000' }],
-            ['number', '(21d)', { color: 'blue' }],
-            ['number', '(14d)', { color: 'green' }],
-
-            ['number', '(7d)', { color: 'orange' }],
+            ['number', '21', { color: 'blue' }],
+            ['number', '14', { color: 'green' }],
+            ['number', Math.max(c.max_nday, 10), { color: 'Violet' }],
+            ['number', '7', { color: 'orange' }],
 
 
 
@@ -316,6 +320,7 @@ let drawpage = window.drawpage = (c, width = 380) => {
                 info(c.R0(i, 21, 21), i),
                 //c.R0(i, 21, 21),
                 info(c.R0(i, 14, 14), i),
+                info(c.R0(i, Math.max(c.max_nday, 10), Math.max(c.max_nday, 10)), i),
                 info(c.R0(i, 7, 7), i),
 
 
@@ -402,7 +407,7 @@ let drawpage = window.drawpage = (c, width = 380) => {
 
             ['number', 'new', { color: 'gold', type: 'bars' }],
 
-            ['number', '14d/14', { color: 'green' }],
+            ['number', `14d/14`, { color: 'green' }],
             ['number', '7d/7', { color: '#000' }],
 
 

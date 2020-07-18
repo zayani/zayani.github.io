@@ -1,5 +1,6 @@
 
 let cases = [
+
     //Feb 24-28
     [2, 0, 0], [23, 0, 0], [33, 0, 0], [33, 0, 0], [38, 0, 0],
     //Feb 29-Mar 04
@@ -131,7 +132,7 @@ cases.info = { acticap2: 8511, pred_min: 408, pred_max: 562 };
 
 
 
-ArrMul(450, 0).forEach((n) => {
+ArrMul(450, 2).forEach((n) => {
     let [a, ...r] = cases[cases.length - 1];
     cases.push([a + n, ...r]);
 });
