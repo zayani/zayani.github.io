@@ -253,8 +253,8 @@ let drawpage = window.drawpage = (c, width = 380) => {
             ['number', 'Days'],
             ['number', 'n-days/perv n-days', { color: 'gray', type: 'bars' }],
             ['number', 'safe', { color: '#afa', type: 'area', visibleInLegend: false }],
-            ['number', 'near safe', { color: '#ffa', type: 'area', visibleInLegend: false }],
-            ['number', 'near safe', { color: '#faa', type: 'area', visibleInLegend: false }],
+
+
 
 
         ],
@@ -262,15 +262,15 @@ let drawpage = window.drawpage = (c, width = 380) => {
             n,
             c.R0(c.l, n, n),
             1,
-            0.25,
-            1e6,
+
+
 
         ])
         ,
         `width: ${width}px;height: 500px;`,
         {
             lineWidth: 0,
-            'vAxis.viewWindow.max': 2.0,
+            //'vAxis.viewWindow.max': 2.0,
             'vAxis.viewWindow.min': 0,
             isStacked: true,
             'hAxis.gridlines.count': 5,
@@ -306,7 +306,7 @@ let drawpage = window.drawpage = (c, width = 380) => {
 
         ],
         c.map(([date, act, rcv, dth], i) =>
-            i <= c.l - (7 * 4) ? null : [
+            i <= c.l - (7 * 2) ? null : [
                 date,
                 1,
                 0.25,
@@ -331,7 +331,7 @@ let drawpage = window.drawpage = (c, width = 380) => {
         `width: ${width}px;height: 500px;`,
         {
             'hAxis.format': 'MMM d',
-            'vAxis.viewWindow.max': 2,
+            'vAxis.viewWindow.max': 1.25,
             'vAxis.viewWindow.min': 0.5,
 
             isStacked: true,
