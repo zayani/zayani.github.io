@@ -132,7 +132,7 @@ cases.info = { acticap2: 8511, pred_min: 408, pred_max: 562 };
 
 
 
-ArrMul(450, 2).forEach((n) => {
+ArrMul(450, 0).forEach((n) => {
     let [a, ...r] = cases[cases.length - 1];
     cases.push([a + n, ...r]);
 });
