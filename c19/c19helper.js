@@ -149,6 +149,31 @@ let $ = {
             return ds;
         }
 
+        // c.nday_arr = [];
+
+        // for (let i = 1, j = c.max_nday_len = 0; i <= 28; i++) {
+        //     for (j = c.l; j > 0 && c.R0(j, i, i) < 1; j--);
+
+        //     c.nday_arr[i] = c.l - j;
+
+        //     if (c.l - j >= c.max_nday_len) [c.max_nday, c.max_nday_len] = [i, c.l - j];
+        // }
+
+
+        c.get_nday_arr = (l = c.l) => {
+            let arr = [0];
+            for (let i = 1, j = 0; i <= 28; i++) {
+                for (j = l; j > 0 && c.R0(j, i, i) < 1; j--);
+                arr[i] = l - j;
+            }
+            return arr;
+        }
+
+        c.nday_arr = c.get_nday_arr();
+
+        c.max_nday_len = Math.max(...c.nday_arr);
+
+        c.max_nday = c.nday_arr.lastIndexOf(c.max_nday_len)
 
         return c;
 

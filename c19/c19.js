@@ -77,10 +77,7 @@ let pred = (i) =>
 
 let addStat = (c) => {
 
-    for (let i = 1, j = c.max_nday_len = 0; i <= 28; i++) {
-        for (j = c.l; j > 0 && c.R0(j, i, i) < 1; j--);
-        if (c.l - j >= c.max_nday_len) [c.max_nday, c.max_nday_len] = [i, c.l - j];
-    }
+
 
     let dd = c.dratediff();
 
@@ -251,18 +248,19 @@ let drawpage = window.drawpage = (c, width = 380) => {
     drawChart(
         [
             ['number', 'Days'],
+
             ['number', 'n-days/perv n-days', { color: 'gray', type: 'bars' }],
-            ['number', 'safe', { color: '#afa', type: 'area', visibleInLegend: false }],
+            [{ type: 'string', role: 'annotation' }, 'label', {}],
 
-
-
-
+            [{ type: 'string', role: 'style' }, 'label', {}],
         ],
         [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28].map(n => [
-            n,
-            c.R0(c.l, n, n),
-            1,
 
+            n,
+            { v: c.R0(c.l, n, n), f: `${c.R0(c.l, n, n).toFixed(3)}<1 for ${c.nday_arr[n]} days` },
+            c.nday_arr[n] > 1 ? `${c.nday_arr[n]}` : null,
+
+            `color: ${c.R0(c.l, n, n) < 1 ? 'green' : 'gray'}`
 
 
         ])
@@ -277,6 +275,31 @@ let drawpage = window.drawpage = (c, width = 380) => {
             'hAxis.direction': -1,
 
 
+        }
+    );
+
+    drawChart2(
+        [
+            ['date', 'date'],
+            ['number', '7', { color: 'orange' }],
+
+        ],
+        c.map(([date, act, rcv, dth], i) =>
+            i <= c.l - (7 * 12) ? null : [
+                date,
+                c.get_nday_arr(i)[5],
+
+
+            ]
+        )
+        ,
+        `width: ${width}px;height: 500px;`,
+        {
+            'hAxis.format': 'MMM d',
+
+
+
+            isStacked: true,
         }
     );
 
@@ -299,14 +322,14 @@ let drawpage = window.drawpage = (c, width = 380) => {
             ['number', 'R0(28d)', { color: '#000' }],
             ['number', '21', { color: 'blue' }],
             ['number', '14', { color: 'green' }],
-            ['number', Math.max(c.max_nday, 10), { color: 'Violet' }],
+            //['number', Math.max(c.max_nday, 10), { color: 'Violet' }],
             ['number', '7', { color: 'orange' }],
 
 
 
         ],
         c.map(([date, act, rcv, dth], i) =>
-            i <= c.l - (7 * 2) ? null : [
+            i <= c.l - (7 * 4) ? null : [
                 date,
                 1,
                 0.25,
@@ -320,7 +343,7 @@ let drawpage = window.drawpage = (c, width = 380) => {
                 info(c.R0(i, 21, 21), i),
                 //c.R0(i, 21, 21),
                 info(c.R0(i, 14, 14), i),
-                info(c.R0(i, Math.max(c.max_nday, 10), Math.max(c.max_nday, 10)), i),
+                //  info(c.R0(i, Math.max(c.max_nday, 10), Math.max(c.max_nday, 10)), i),
                 info(c.R0(i, 7, 7), i),
 
 
