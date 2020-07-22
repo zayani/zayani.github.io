@@ -28,7 +28,7 @@ let $ = {
     addCasesFunctions(c) {
 
         c.sum =
-            i => c[i] && c[i][1] ?
+            i => c[i] ?
                 (c[i][1] + c[i][2] + c[i][3]) : null;
 
         c.closed = i => c[i] && c[i][2] ?

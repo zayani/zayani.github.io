@@ -1,6 +1,5 @@
 
 let cases = [
-
     //Feb 24-28
     [2, 0, 0], [23, 0, 0], [33, 0, 0], [33, 0, 0], [38, 0, 0],
     //Feb 29-Mar 04
@@ -125,7 +124,8 @@ let cases = [
     [3843, 32965, 128, 46, 70, 735492],
     //JUL 21
     [3732, 33455, 129, 47, 90, 744694],
-
+    //JUL 22
+    [3613, 33894, 130, 47, 91, 752485]
 
 ]
 
@@ -134,12 +134,12 @@ let ArrMul = (v, n = 0) =>
         .map((x, i) => v);
 
 
-cases.day0 = new Date(`2020-02-24`);
+cases.day0 = new Date(`2020-02-${24}`);
 cases.info = { pred_min: 398, pred_max: 547 };
 
 
 
-ArrMul(380, 0).forEach((n) => {
+ArrMul(450, 0).forEach((n) => {
     let [a, ...r] = cases[cases.length - 1];
     cases.push([a + n, ...r]);
 });

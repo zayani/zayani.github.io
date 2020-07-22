@@ -260,7 +260,7 @@ let drawpage = window.drawpage = (c, width = 380) => {
             { v: c.R0(c.l, n, n), f: `${c.R0(c.l, n, n).toFixed(3)}<1 for ${c.nday_arr[n]} days` },
             c.nday_arr[n] > 1 ? `${c.nday_arr[n]}` : null,
 
-            `color: ${c.R0(c.l, n, n) < 1 ? 'green' : 'gray'}`
+            `color: ${c.R0(c.l, n, n) < 1 ? c.nday_arr[n] >= n ? 'green' : 'lightgreen' : '#bbb'}`
 
 
         ])
@@ -271,7 +271,7 @@ let drawpage = window.drawpage = (c, width = 380) => {
             //'vAxis.viewWindow.max': 2.0,
             'vAxis.viewWindow.min': 0,
             isStacked: true,
-            'hAxis.gridlines.count': 5,
+            'vAxis.gridlines.count': 5,
             'hAxis.direction': -1,
 
 
@@ -358,6 +358,7 @@ let drawpage = window.drawpage = (c, width = 380) => {
             'vAxis.viewWindow.min': 0.5,
 
             isStacked: true,
+
         }
     );
 
