@@ -376,7 +376,7 @@ let drawpage = window.drawpage = (c, width = 380) => {
             ['date', 'date'],
             ['number', 'too fast', { color: '#faa', type: 'area', visibleInLegend: false }],
             ['number', 'fast', { color: '#ffa', type: 'area', visibleInLegend: false }],
-            // ['number', ' (death)', { color: 'red' }],
+            //['number', ' (death)', { color: 'red' }],
             ['number', 'days to double (7d RA trend)', { color: '#aaa' }],
             ['number', '(total)', { color: '#444' }],
 
@@ -527,7 +527,7 @@ let drawpage = window.drawpage = (c, width = 380) => {
 
 
         ],
-        c.map(([date, act, rcv, dth], i) => i < 1 ? null : [
+        c.map(([date, act, rcv, dth], i) => i < 7 ? null : [
             c.new(i, 7) / 7,
             act,
 
