@@ -285,9 +285,9 @@ let drawpage = window.drawpage = (c, width = 380) => {
 
         ],
         c.map(([date, act, rcv, dth], i) =>
-            i <= c.l - (7 * 12) ? null : [
+            i <= c.l - (7 * 28) ? null : [
                 date,
-                c.get_nday_arr(i)[5],
+                c.get_nday_arr(i)[7],
 
 
             ]
@@ -485,7 +485,7 @@ let drawpage = window.drawpage = (c, width = 380) => {
 
     newchart(i => i >= c.l - 28);
 
-    drawChart2(
+    drawChart(
         [
             ['date', 'date'],
             ['number', 'Accel. cases/day² (5d avg)', { color: '#eee' }],
