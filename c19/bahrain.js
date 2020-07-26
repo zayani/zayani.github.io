@@ -132,7 +132,8 @@ let cases = [
     [3496, 34826, 136, 48, 80, 771500],
     //JUL 25
     [3405, 35205, 137, 51, 74, 780081],
-
+    //JUL 26
+    [3302, 35689, 140, 48, 98, 788910],
 
 
 ]
@@ -143,11 +144,11 @@ let ArrMul = (v, n = 0) =>
 
 
 cases.day0 = new Date(`2020-02-${24}`);
-cases.info = { pred_min: 398, pred_max: 547 };
+cases.info = { pred_min: 290, pred_max: 406 };
 
 
 
-ArrMul(400, 0).forEach((n) => {
+ArrMul(300, 0).forEach((n) => {
     let [a, ...r] = cases[cases.length - 1];
     cases.push([a + n, ...r]);
 });
