@@ -170,11 +170,13 @@ let addcasesTable = (c) => {
 
 
         let row = Array(7).fill(null).map((_, j) =>
-            [i + j, c.new(i + j), c.daysmaller(i + j, 5),
+            [i + j,
+            c.new(i + j),
+            c.daysmaller(i + j, 5),
             c.df((c[i + j] || [, , 0])[2] - (c[i + j - 1] || [, , 0])[2]),
             c.df((c[i + j] || [, , 0])[3] - (c[i + j - 1] || [, , 0])[3]),
             ]);
-        //console.log(row);
+
         let wsum = row.reduce((a, b) => a + b[1], 0);
 
         if (c.length - (11 * 7) > i) { psum = wsum; continue; }
@@ -183,6 +185,8 @@ let addcasesTable = (c) => {
 
         //rgb(${v(n)})
         //v(n)[1] > 128 ? '#000' : '#fff'
+
+        //row = row.sort((a, b) => b[1] - a[1]);
 
         cases.push([...row.map(([n, x, C, r, d]) =>
             `<div title="${
