@@ -140,16 +140,16 @@ let addcasesTable = (c) => {
     let wd = [0, 0, 0, 0, 0, 0, 0, 0];
 
 
+    let wl = 7;
 
-
-    for (let i = 0, l = c.length - (c.length % 7); i < l; i++) {
-        wd[7] += c.new(i); wd[i % 7] += c.new(i);
+    for (let i = 0, l = c.length - (c.length % wl); i < l; i++) {
+        wd[wl] += c.new(i); wd[i % wl] += c.new(i);
     }
 
-    for (let avg, i = 0; i < 7; i++) {
-        avg = wd[i] / wd[7] * 7;
+    for (let avg, i = 0; i < wl; i++) {
+        avg = wd[i] / wd[wl] * wl;
         data.addColumn('string', ("" + c[i][0]).split(" ")[0]
-            + `<br><span>${avg.toFixed(2)}/7<span>`
+            + `<br><span>${avg.toFixed(2)}/${wl}<span>`
         );
     }
 
@@ -165,11 +165,13 @@ let addcasesTable = (c) => {
 
     let colors = ["#FF0000", "#FF3333", "#FF6666", "#FF9999", "#FFCCCC", "#FFFFFF"];
 
-    for (let i = 0, w = 1; i < c.length; i += 7, w++) {
+
+
+    for (let i = 0, w = 1; i < c.length; i += wl, w++) {
 
 
 
-        let row = Array(7).fill(null).map((_, j) =>
+        let row = Array(wl).fill(null).map((_, j) =>
             [i + j,
             c.new(i + j),
             c.daysmaller(i + j, 5),
@@ -179,7 +181,7 @@ let addcasesTable = (c) => {
 
         let wsum = row.reduce((a, b) => a + b[1], 0);
 
-        if (c.length - (11 * 7) > i) { psum = wsum; continue; }
+        if (c.length - (11 * wl) > i) { psum = wsum; continue; }
 
         let bi = i + 6 < c.l ? i + 6 : c.l;
 
@@ -208,9 +210,9 @@ let addcasesTable = (c) => {
                 ""//JSON.stringify($.date(c[0][0], n)).split("T")[0].split("2020-")[1]
                 }</div>`}</div>`
         ),
-        `W${w} ${psum ? (i + 6 > c.l ? (wsum * 7 / (c.length % 7)) / psum : wsum / psum).toFixed(2) : ''}<br/><b>${c.df(wsum)} 
+        `W${w} ${psum ? (i + 6 > c.l ? (wsum * wl / (c.length % wl)) / psum : wsum / psum).toFixed(2) : ''}<br/><b>${c.df(wsum)} 
         
-        ${c.df(Math.round(i + 6 > c.l ? wsum / (c.length % 7) : wsum / 7))}</b><br/><sub>
+        ${c.df(Math.round(i + 6 > c.l ? wsum / (c.length % wl) : wsum / wl))}</b><br/><sub>
         ✓${
         c.df(c[bi][2] - (c[i - 1] || [, , 0])[2])
         } 
@@ -388,7 +390,7 @@ let drawpage = window.drawpage = (c, width = 380) => {
 
         ],
         c.map(([date, act, rcv, dth], i) =>
-            i < c.l - 70 ? null : [
+            i < c.l - 80 ? null : [
                 date,
                 14,
                 28,
@@ -404,7 +406,7 @@ let drawpage = window.drawpage = (c, width = 380) => {
         `width: ${width}px;height: 500px;`,
         {
             'hAxis.format': 'MMM d',
-            'vAxis.viewWindow.max': 70,
+            'vAxis.viewWindow.max': 100,
             isStacked: true,
 
             //'vAxis.logScale': true,
