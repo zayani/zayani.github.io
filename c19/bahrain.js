@@ -172,6 +172,10 @@ let cases = [
     [3379, 42180, 167, 40, 77, 944798],
     //AUG 14
     [3415, 42469, 168, 40, 85, 954192],
+    //AUG 15
+    [3454, 42806, 170, 35, 97, 962334],
+    //AUG 16
+
 
 
 ]
@@ -187,7 +191,7 @@ cases.info = { pred_min: 275, pred_max: 378 };
 
 
 
-ArrMul(300, 0).forEach((n) => {
+ArrMul(340, 0).forEach((n) => {
     let [a, ...r] = cases[cases.length - 1];
     cases.push([a + n, ...r]);
 });
