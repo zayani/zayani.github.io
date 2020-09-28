@@ -258,23 +258,28 @@ let cases = [
     [6479, 61475, 236, 55, 140, 1388323],
     //SEP 26
     [6284, 62252, 239, 61, 130, 1398454],
+    //SEP 27
+    [6232, 62887, 242, 61, 153, 1407572],
 ]
 
-let ArrMul = (v, n = 0) =>
-    Array.isArray(v) ? v : new Array(n).fill()
-        .map((x, i) => v);
+let d = x => new Date(x)
 
 
-cases.day0 = new Date(`2020-02-${24}`);
+
+cases.day0 = d`2020-02-24`;
 // cases.info = { pred_min: 275, pred_max: 378 };
 
 
 
+cases.events = {
+    [d`2020-04-24` - 0]: `Ramdan 1st`,
+    [d`2020-05-25` - 0]: `Eid al-Fitr`,
+    [d`2020-07-31` - 0]: `Eid al-Adha`,
+    [d`2020-08-20` - 0]: `Hijri new year`,
+    [d`2020-08-30` - 0]: `Ashura`,
+}
 
-ArrMul(670, 0).forEach((n) => {
-    let [a, ...r] = cases[cases.length - 1];
-    cases.push([a + n, ...r]);
-});
+
 
 
 
