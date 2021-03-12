@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+
+            box-sizing: border-box;
+            transition: 5s;
+        }
+
+        [skirt] {
+            width: 900px;
+            height: 900px;
+            margin: 20px;
+            border-radius: 50%;
+            border: 2px solid;
+            position: relative;
+            background: #f1f1f1;
+
+        }
+
+        [dot] {
+            background: #000;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        [c2] {
+            background: #ccc;
+            border: 0px solid;
+            width: 412px;
+            height: 412px;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+        }
+
+        [core] {
+            background2: #f1f1f188;
+            width: 98px;
+            height: 40px;
+
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform-origin: 0 50%;
+            transform: translate(0, -50%) rotate(30deg);
+
+        }
+
+
+
+        [core]::after {
+            content: '';
+            background: #444;
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 40px;
+
+            border-radius: 50%;
+
+        }
+
+        [sea_lvl] {
+            background2: #f1f1f188;
+            width: 145px;
+            height: 130px;
+
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform-origin: 0 50%;
+            transform: translate(0, -50%) rotate(30deg);
+
+        }
+
+        [e2] {
+            transform: translate(0, -50%) rotate(150deg);
+        }
+
+        [e3] {
+            transform: translate(0, -50%) rotate(270deg);
+        }
+
+        [sea_lvl]::after {
+            content: '';
+            background: #666;
+            background: radial-gradient(transparent, transparent 20%,
+                    gray 20%, black 100%);
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 130px;
+
+            border-radius: 50%;
+        }
+
+        [vac_lvl] {
+            background2: #f1f1f188;
+            width: 450px;
+            height: 240px;
+
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform-origin: 0 50%;
+            transform: translate(0, -50%) rotate(90deg);
+
+        }
+
+        [e5] {
+            transform: translate(0, -50%) rotate(210deg);
+        }
+
+        [e6] {
+            transform: translate(0, -50%) rotate(330deg);
+        }
+
+        [vac_lvl]::after {
+            content: '';
+            background: #666;
+            background: radial-gradient(transparent, transparent 10.833%,
+                    gray 10.833%, black 100%);
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 240px;
+
+            border-radius: 50%;
+        }
+
+
+
+        [vac_mode] [core] {
+            width: 160px;
+        }
+
+        [vac_mode] [c2] {
+            transform: translate(-50%, -50%) rotate(60deg);
+        }
+
+        [vac_mode] [sea_lvl] {
+            width: 400px;
+        }
+
+        [vac_mode] [vac_lvl] {
+            width: 260px;
+        }
+    </style>
+</head>
+
+<body>
+    <div skirt id="skirt">
+        <div dotx></div>
+        <div c2>
+            <div core></div>
+            <div core e2></div>
+            <div core e3></div>
+        </div>
+
+
+
+        <div sea_lvl e1></div>
+        <div sea_lvl e2></div>
+        <div sea_lvl e3></div>
+
+        <div vac_lvl e4></div>
+        <div vac_lvl e5></div>
+        <div vac_lvl e6></div>
+
+
+    </div>
+    <script>
+
+        const skirt = document.getElementById('skirt');
+
+
+        setInterval(_ => skirt.toggleAttribute('vac_mode'), 6000);
+        setTimeout(_ => skirt.toggleAttribute('vac_mode'), 1000);
+
+    </script>
+</body>
+
+</html>
