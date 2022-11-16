@@ -7,6 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FullReaction</title>
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P8C85TVE0N"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-P8C85TVE0N');
+    </script>
+
     <style>
         #videoBase {
             background: #000;
@@ -27,11 +40,17 @@
         }
         
         #videoReact {
-            position: absolute;
-            z-index: 10;
-            width: 24vw;
+            width: 100%;
+            height: 100%;
             border-radius: 1vw;
+            object-fit: cover;
+            position: absolute !important;
+            z-index: 10;
+            top: 1vw;
+            left: 1vw;
             cursor: move;
+            width: 24vw;
+            height: 13.5vw;
         }
         
         #BottomBar {
@@ -95,11 +114,13 @@
         #BottomBarRaw1>#timer {
             margin-right: 1vw;
             text-align: right;
+            cursor: pointer;
         }
         
         #BottomBarRaw1>#timer2 {
             margin-left: 1vw;
             text-align: left;
+            cursor: pointer;
         }
         
         button {
@@ -115,7 +136,7 @@
             top: 0;
             left: 0;
             right: 0;
-            z-index: 100;
+            z-index: 5;
             color: #fff;
             padding: 0.5rem;
             background: rgba(0, 0, 0, 0.75);
@@ -142,16 +163,20 @@
 </head>
 
 <body>
-    <video id="videoReact" draggable="true" layout="TL">
-        
-    </video>
+
+
+
+
+    <video id="videoReact" class="ui-widget-content" draggable="true">
+        </video>
+
 
     <video id="videoBase">
         
     </video>
 
     <div id="tipsScreen">
-        FullReaction v0.0.2 | How To use:
+        FullReaction v0.0.3 | How To use:
         <!-- list  -->
         <ul>
             <li>Both base and reaction/commentary videos should be local videos</li>
