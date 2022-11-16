@@ -411,27 +411,6 @@ $("#timer").click(e => {
     videoReactHeightIndex =
         (videoReactHeightIndex + 1) % 5;
 
-    // //set height if index is 0 to auto
-    // if (videoReactHeightIndex == 0) {
-    //     $("#videoReact").css("height", "auto");
-    //     $("#videoReact").css("object-position", "")
-    // }
-    // else if (videoReactHeightIndex == 1) {
-    //     $("#videoReact").css("height", 9 / 24 * $("#videoReact").width() + "px");
-    //     $("#videoReact").css("object-position", "top 25% left 0")
-    // }
-    // else if (videoReactHeightIndex == 2) {
-    //     $("#videoReact").css("height", 9 / 24 * $("#videoReact").width() + "px");
-    //     $("#videoReact").css("object-position", "")
-    // }
-    // else if (videoReactHeightIndex == 3) {
-    //     $("#videoReact").css("height", 9 / 24 * $("#videoReact").width() + "px");
-    //     $("#videoReact").css("object-position", "bottom 25% left 0")
-    // }
-    // else if (videoReactHeightIndex == 4) {
-    //     $("#videoReact").css("height", 9 / 21 * $("#videoReact").width() + "px");
-    //     $("#videoReact").css("object-position", "")
-    // }
 
     //conver if else to switch
     switch (videoReactHeightIndex) {
@@ -447,7 +426,7 @@ $("#timer").click(e => {
 
 });
 
-let videoReactPosIndex = 0;
+
 
 
 // #BaseVol control volume of videoReact
