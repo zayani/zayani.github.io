@@ -35,36 +35,23 @@
             height: calc( 100% - 32px);
         }
         
-        [title] {
-            position: absolute;
-            top: 0px;
-            right: 0px;
-            font-weight: bold;
-            width: 30%;
-            text-align: right;
-            padding-top: 4px;
-        }
-        
-        [apptitle] {
-            position: absolute;
-            top: 0px;
-            left: 20px;
-            color: #888;
-            font-weight: bold;
-            z-index: 2;
-            display: inline-block;
-            text-align: left;
-            padding-top: 4px;
-        }
-        
         [links] {
-            height: 31px;
-            position: absolute;
-            top: 0;
-            left: 4px;
-            right: 0;
-            border-bottom: 1px solid #eee;
             text-align: center;
+        }
+        
+        [title] {
+            font-weight: bold;
+        }
+        
+        [topBar] {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            height: 32px;
+            background-color: #fff;
+            padding: 0 8px;
+            box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
         }
         
         a {
@@ -89,18 +76,23 @@
 
 <body>
 
-    <div title>
-        احتباس إبداعي
-    </div>
+    <div topBar>
+        <div apptitle>
+            إنتاج+ 0.0.1 | تطوير: أحمد الزياني
+        </div>
 
-    <div apptitle title="تطوير أحمد الزياني | 2023">
-        إنتاج+ 0.0.1 | تطوير: أحمد الزياني
-    </div>
 
-    <div links dir="rtl">
+        <div links dir="rtl">
 
-        <a href="#break">تجزئة المشاهد</a>
-        <a href="#budget">الميزانية</a>
+            <a href="#break">تجزئة المشاهد</a>
+            <a href="#budget">الميزانية</a>
+        </div>
+        <div title>
+            احتباس إبداعي
+        </div>
+
+
+
     </div>
 
     <iframe id="break" src="./break.html" frameBorder="0"></iframe>
