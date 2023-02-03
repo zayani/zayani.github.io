@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800&display=swap" rel="stylesheet">
+
+    <title>احتباس إبداعي</title>
+
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        iframe {
+            display: block;
+            display: none;
+            width: 100%;
+            height: calc( 100% - 32px);
+        }
+        
+        [title] {
+            position: absolute;
+            top: 4px;
+            right: 20px;
+            font-weight: bold;
+            z-index: 2;
+        }
+        
+        [apptitle] {
+            position: absolute;
+            top: 4px;
+            left: 20px;
+            color: #888;
+            font-weight: bold;
+            z-index: 2;
+        }
+        
+        [links] {
+            height: 31px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            border-bottom: 1px solid #eee;
+            text-align: center;
+        }
+        
+        a {
+            display: inline-block;
+            padding: 8px;
+            padding-top: 4px;
+            text-decoration: none;
+            color: darkblue;
+            font-weight: bold;
+        }
+        
+        iframe:target {
+            display: block;
+            position: absolute;
+            top: 32px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div title>
+        احتباس إبداعي
+    </div>
+
+    <div apptitle title="تطوير أحمد الزياني | 2023">
+        إنتاج+ 0.0.1 | تطوير: أحمد الزياني
+    </div>
+
+    <div links dir="rtl">
+
+        <a href="#break">تجزئة المشاهد</a>
+        <a href="#budget">الميزانية</a>
+    </div>
+
+    <iframe id="break" src="./break.html" frameBorder="0"></iframe>
+
+    <iframe id="budget" src="./budget.html" frameBorder="0"></iframe>
+
+</body>
+
+</html>

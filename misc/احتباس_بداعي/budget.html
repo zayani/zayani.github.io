@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+        
+        [table] {
+            margin: 10px auto;
+            border: 1px solid;
+            border-radius: 10px;
+            max-width: 480px;
+            overflow: hidden;
+        }
+        
+        [th] {
+            background-color: darkblue;
+            color: #fff;
+            padding: 10px;
+        }
+        
+        [th="Pre Production"] {
+            background-color: darkgreen;
+        }
+        
+        [th="Production"] {
+            background-color: darkorchid;
+        }
+        
+        [th="Post Production"] {
+            background-color: darkcyan;
+        }
+        
+        [td] {
+            padding: 5px;
+        }
+        
+        [row] {
+            display: flex;
+        }
+        
+        [item] {
+            flex: 1;
+        }
+        
+        [price] {
+            text-align: right;
+            width: 50px;
+        }
+        
+        [price]::before {
+            content: "$";
+        }
+        
+        [th="Grand Total"] {
+            display: none;
+        }
+        
+        [table="Grand Total"] {
+            background: yellow;
+        }
+        
+        [table="Grand Total"] [item="Total"]::before {
+            content: "Grand ";
+        }
+        
+        [row="Total"] {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script src="./b.js"></script>
+</body>
+
+</html>
