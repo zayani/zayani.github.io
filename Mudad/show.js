@@ -1,5 +1,8 @@
 
-let events = timeline.split("\n").filter(x => x);
+let events = timeline
+    //.split("الحلقة 3")[0]
+    .split("\n").filter(x => x);
+
 
 
 events = events.map(x => {
