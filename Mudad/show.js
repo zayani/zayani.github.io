@@ -6,6 +6,13 @@ events = events.map(x => {
 
     let parts = x.split(":");
     let type = parts[0][0];
+
+    if (!parts[1]) return `
+    <div class="eventTitle">
+    <div>${x.trim()}</div>
+    </div>
+    `;
+
     let text = parts[1].trim();
 
     let trans = parts[0][2] ? (parts[0][0] + parts[0][2]) : "";
