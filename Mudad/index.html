@@ -14,7 +14,7 @@
             direction: rtl;
             font-family: sans-serif;
         }
-
+        
         #events {
             display: flex;
             flex-direction: column;
@@ -22,26 +22,26 @@
             justify-content: center;
             min-height: 100vh;
         }
-
+        
         .eventTitle {
             font-size: 1rem;
             padding: 5px 0;
             border-radius: 5px;
             font-weight: bold;
             margin-bottom: 7px;
-            background: #888;
+            background: #44A;
             color: #fff;
             width: 800px;
             text-align: center;
         }
-
+        
         .event,
         .eventHead {
             display: flex;
             flex-direction: row;
             position: relative;
         }
-
+        
         .event>div,
         .eventHead>div {
             border: 1px solid #000;
@@ -52,7 +52,7 @@
             width: 200px;
             position: relative;
         }
-
+        
         .eventHead>div {
             margin: 0px 30px;
             text-align: center;
@@ -61,11 +61,11 @@
             font-weight: bold;
             border: none;
         }
-
+        
         .event>div:empty {
             border-color: transparent;
         }
-
+        
         .event>div:empty::after {
             content: "";
             position: absolute;
@@ -76,7 +76,7 @@
             left: 50%;
             transform: translateX(-50%);
         }
-
+        
         .event>div:before {
             content: "";
             position: absolute;
@@ -87,7 +87,7 @@
             left: 50%;
             transform: translateX(-50%);
         }
-
+        
         .event>div:not(:empty)::after {
             content: "▼";
             font-size: 0.7rem;
@@ -96,7 +96,7 @@
             left: 50%;
             transform: translateX(-50%);
         }
-
+        
         .event[trans="بم"]::before {
             content: "";
             position: absolute;
@@ -107,9 +107,7 @@
             background-color: #0000;
             left: 50%;
         }
-
-
-
+        
         .event[trans="مغ"]::before,
         .event[trans="مك"]::before {
             content: "";
@@ -121,7 +119,7 @@
             background-color: #0000;
             left: 135px;
         }
-
+        
         .event[trans="غم"]::before {
             content: "";
             position: absolute;
@@ -132,7 +130,7 @@
             background-color: #0000;
             left: 240px;
         }
-
+        
         .event[trans="مك"]::after {
             content: "";
             position: absolute;
@@ -143,12 +141,12 @@
             background-color: #0000;
             left: 505px;
         }
-
+        
         .event+.eventTitle,
         .event+.eventTitle>div {
             position: relative;
         }
-
+        
         .event+.eventTitle>div::before {
             position: absolute;
             content: "";
@@ -159,7 +157,7 @@
             height: 7px;
             background: #000;
         }
-
+        
         .event+.eventTitle::before {
             position: absolute;
             content: "";
@@ -170,7 +168,7 @@
             height: 7px;
             background: #000;
         }
-
+        
         .event+.eventTitle::after {
             position: absolute;
             content: "";
