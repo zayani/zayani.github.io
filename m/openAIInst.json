@@ -12,12 +12,12 @@
     {
         "id":"DistractedBoyfriend",
         "explanation": "The Distracted Boyfriend meme shows a man looking at another woman while his girlfriend looks on disapprovingly, symbolizing someone tempted by a newer option over a current one",
-        "parms": ["Boyfriend label","Girlfriend label","Another woman label"]
+        "parms": ["Girlfriend label","Another woman label","Boyfriend label"]
     },
     {
         "id":"UNODraw25",
-        "explanation": "The UNO Draw 25 Cards meme humorously presents a choice between a challenging task and drawing 25 cards in a game of UNO",
-        "parms": ["Person holding the cards label","challenging task label"]
+        "explanation": "The UNO Draw 25 Cards meme humorously presents a challenging task or drawing 25 cards in a game of UNO",
+        "parms": ["challenging task label","Person holding the cards label"]
     },
     {
         "id":"RunningAwayBalloon",
