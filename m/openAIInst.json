@@ -17,12 +17,12 @@
     {
         "id":"UNODraw25",
         "explanation": "The UNO Draw 25 Cards meme humorously presents a challenging task or drawing 25 cards in a game of UNO",
-        "parms": ["challenging task label","Person holding the cards label"]
+        "parms": ["challenging task label","Person label"]
     },
     {
         "id":"RunningAwayBalloon",
         "explanation": "The Running Away Balloon meme depicts a person chasing a balloon, symbolizing someone desperately trying to catch or recover something elusive or lost",
-        "parms": ["Person chasing a balloon label","Balloon label"]
+        "parms": ["Person label","something elusive label","HoldingBack label"]
     },
     {
         "id":"LeftExit12",
@@ -32,7 +32,7 @@
     {
         "id":"BernieAskingSupport",
         "explanation": "The 'Bernie I Am Once Again Asking For Your Support' meme features Bernie Sanders earnestly requesting help, often repurposed for humorous or relatable appeals",
-        "parms": ["Bernie Sanders label","the text that follows 'I Am Once Again Asking'"]
+        "parms": ["The asker label","the text that follows 'I Am Once Again Asking'"]
     },
     {
         "id":"ChangeMyMind",
