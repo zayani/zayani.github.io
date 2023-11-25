@@ -7,7 +7,7 @@
     {
         "id":"TwoButtons",
         "explanation": "The Two Buttons meme depicts a person sweating while choosing between two options, representing a difficult or humorous decision",
-        "parms": ["Option A label","Option B label","Person label"]
+        "parms": ["Option A label","Option B label","Sweating Person label"]
     },
     {
         "id":"DistractedBoyfriend",
@@ -49,7 +49,5 @@
         "explanation": "The Epic Handshake meme depicts two muscular arms clasping hands, symbolizing an unexpected agreement or common ground between differing parties",
         "parms": ["left arm label","right arm label","clasping hands label"]
     }
-
-
 
 ]
