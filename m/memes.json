@@ -4,17 +4,17 @@
 "left: 249px; top: 5px; width: 235px; height: 235px;",
 "left: 249px; top: 249px; width: 235px; height: 235px;"],
 "TwoButtons":
-["transform: scale(1);color: #fff;font-size: 25px;|shadow2px",
+["transform: scale(1);color: #fff;font-size: 20px;|shadow2px",
 "left: 44px; top: 68px; width: 153px; height: 74px; transform: rotate(349deg)",
 "left: 221px; top: 44px; width: 117px; height: 66px; transform: rotate(352deg);",
 "left: 15px; top: 614px; width: 457px; height: 99px;"],
 "DistractedBoyfriend":
-["color: #fff;font-size: 25px;|shadow2px",
+["color: #fff;font-size: 20px;|shadow2px",
 "left: 231px; top: 132px; width: 130px; height: 64px;",
 "left: 368px; top: 162px; width: 109px; height: 83px;",
 "left: 46px; top: 203px; width: 175px; height: 66px;"],
 "UNODraw25":
-["color: #fff;font-size: 20px;|shadow2px",
+["font-size: 25px;",
 "left: 73px; top: 144px; width: 149px; height: 100px;",
 "left: 256px; top: 3px; width: 228px; height: 60px;"]
 }
