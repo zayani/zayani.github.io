@@ -1,0 +1,55 @@
+[
+    {
+        "id":"DrakeHotlineBling",
+        "explanation": "Drake Hotline Bling meme contrasts Drake's disapproving and approving reactions to humorously highlight two opposing things",
+        "parms": ["disapproving label","approving label"]
+    },
+    {
+        "id":"TwoButtons",
+        "explanation": "The Two Buttons meme depicts a person sweating while choosing between two options, representing a difficult or humorous decision",
+        "parms": ["Option A label","Option B label","Person label"]
+    },
+    {
+        "id":"DistractedBoyfriend",
+        "explanation": "The Distracted Boyfriend meme shows a man looking at another woman while his girlfriend looks on disapprovingly, symbolizing someone tempted by a newer option over a current one",
+        "parms": ["Boyfriend label","Girlfriend label","Another woman label"]
+    },
+    {
+        "id":"UNODraw25",
+        "explanation": "The UNO Draw 25 Cards meme humorously presents a choice between a challenging task and drawing 25 cards in a game of UNO",
+        "parms": ["Person holding the cards label","challenging task label"]
+    },
+    {
+        "id":"RunningAwayBalloon",
+        "explanation": "The Running Away Balloon meme depicts a person chasing a balloon, symbolizing someone desperately trying to catch or recover something elusive or lost",
+        "parms": ["Person chasing a balloon label","Balloon label"]
+    },
+    {
+        "id":"LeftExit12",
+        "explanation": "The Left Exit 12 Off Ramp meme shows a car swerving off a highway exit at the last second, symbolizing a sudden, often humorous, change in decision or direction",
+        "parms": ["Car label","Forward/orignal path label","Exit ramp label"]
+    },
+    {
+        "id":"BernieAskingSupport",
+        "explanation": "The 'Bernie I Am Once Again Asking For Your Support' meme features Bernie Sanders earnestly requesting help, often repurposed for humorous or relatable appeals",
+        "parms": ["Bernie Sanders label","the text that follows 'I Am Once Again Asking'"]
+    },
+    {
+        "id":"ChangeMyMind",
+        "explanation": "The 'Change My Mind' meme features a man with a sign inviting others to challenge his opinion, commonly used to express stubborn or controversial viewpoints",
+        "parms": ["The sign lable before 'Change My Mind'"]
+    },
+    {
+        "id":"WaitingSkeleton",
+        "explanation": "The Waiting Skeleton meme shows a skeleton sitting on a bench, representing a long, often exaggerated wait for something to happen",
+        "parms": ["The first part of the waiting text","The last part of the waiting text (panch line)"]
+    },
+    {
+        "id":"EpicHandshake",
+        "explanation": "The Epic Handshake meme depicts two muscular arms clasping hands, symbolizing an unexpected agreement or common ground between differing parties",
+        "parms": ["left arm label","right arm label","clasping hands label"]
+    }
+
+
+
+]
