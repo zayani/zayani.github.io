@@ -151,6 +151,8 @@ $("#videoReact").click(playPause);
 
 let lastSync = Date.now();
 
+var lastNum = null;
+
 //on document keydown
 $(document).keydown((e) => {
   //when space is pressed
@@ -236,8 +238,24 @@ $(document).keydown((e) => {
 
       console.log("shiftDelay", shiftDelay, e.keyCode);
 
+      if (lastNum) {
+        i = lastNum + i / 10;
+      }
+
       //set time to 10% multiplied by the number pressed
       setBothTime(len * ((i + shiftDelay) / 10));
+
+      //return if lastNum is null
+      if (lastNum != null) return;
+
+      lastNum = i;
+      console.log("lastNum", lastNum);
+      document.querySelector("#videoBase").style.opacity = 0.1;
+      setTimeout(() => {
+        console.log("lastNum", lastNum, "set to null");
+        lastNum = null;
+        document.querySelector("#videoBase").style.opacity = 1;
+      }, 300);
     }
   }
 });
