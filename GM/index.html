@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GrowMore - Connect, Invest, Grow</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(to bottom, #E6F3FF, #FFFFFF);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2563EB;
+        }
+        nav ul {
+            display: flex;
+            list-style-type: none;
+            gap: 24px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #4B5563;
+        }
+        nav a:hover {
+            color: #2563EB;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .btn-primary {
+            background-color: #2563EB;
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: #1D4ED8;
+        }
+        .btn-secondary {
+            border: 1px solid #2563EB;
+            color: #2563EB;
+        }
+        .btn-secondary:hover {
+            background-color: #EFF6FF;
+        }
+        main {
+            padding: 64px 0;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .mb-16 {
+            margin-bottom: 64px;
+        }
+        .mb-8 {
+            margin-bottom: 32px;
+        }
+        .mb-4 {
+            margin-bottom: 16px;
+        }
+        .mb-2 {
+            margin-bottom: 8px;
+        }
+        .grid {
+            display: grid;
+            gap: 32px;
+        }
+        .card {
+            background-color: white;
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        footer {
+            background-color: #1F2937;
+            color: white;
+            padding: 32px 0;
+            text-align: center;
+        }
+        .icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 16px;
+        }
+        @media (min-width: 768px) {
+            .grid-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .grid-4 {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>GrowMore</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#" class="btn btn-primary">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="text-center mb-16">
+            <h2 class="mb-4" style="font-size: 2.25rem;">Connect, Invest, Grow</h2>
+            <p class="mb-8" style="font-size: 1.25rem; color: #4B5563;">Your gateway to SME funding and investment opportunities</p>
+            <div>
+                <a href="#" class="btn btn-primary" style="margin-right: 16px;">
+                    Get Started 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-left: 8px;">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+                <a href="#" class="btn btn-secondary">Learn More</a>
+            </div>
+        </section>
+
+        <section class="grid grid-3 mb-16">
+            <div class="card">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="1" x2="12" y2="23"></line>
+                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+                <h3 class="mb-2" style="font-size: 1.25rem;">For SMEs</h3>
+                <p class="mb-4" style="color: #4B5563;">Secure funding for your business growth</p>
+                <a href="#" style="color: #2563EB; text-decoration: none;">Find Investors &rarr;</a>
+            </div>
+            <div class="card">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+                <h3 class="mb-2" style="font-size: 1.25rem;">For Investors</h3>
+                <p class="mb-4" style="color: #4B5563;">Discover promising SMEs to invest in</p>
+                <a href="#" style="color: #2563EB; text-decoration: none;">Browse Opportunities &rarr;</a>
+            </div>
+            <div class="card">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="20" x2="12" y2="10"></line>
+                    <line x1="18" y1="20" x2="18" y2="4"></line>
+                    <line x1="6" y1="20" x2="6" y2="16"></line>
+                </svg>
+                <h3 class="mb-2" style="font-size: 1.25rem;">For Managers</h3>
+                <p class="mb-4" style="color: #4B5563;">Oversee and facilitate deals</p>
+                <a href="#" style="color: #2563EB; text-decoration: none;">Manage Platform &rarr;</a>
+            </div>
+        </section>
+
+        <section class="text-center">
+            <h2 class="mb-4" style="font-size: 1.875rem;">Why Choose GrowMore?</h2>
+            <div class="grid grid-4" style="margin-top: 32px;">
+                <div>
+                    <h3 class="mb-2" style="font-weight: 600;">Secure Platform</h3>
+                    <p style="color: #4B5563;">State-of-the-art security measures</p>
+                </div>
+                <div>
+                    <h3 class="mb-2" style="font-weight: 600;">Expert Facilitation</h3>
+                    <p style="color: #4B5563;">Support for high-value deals</p>
+                </div>
+                <div>
+                    <h3 class="mb-2" style="font-weight: 600;">Efficient Matching</h3>
+                    <p style="color: #4B5563;">Smart algorithms connect SMEs and investors</p>
+                </div>
+                <div>
+                    <h3 class="mb-2" style="font-weight: 600;">Transparent Process</h3>
+                    <p style="color: #4B5563;">Clear communication and progress tracking</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 GrowMore. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

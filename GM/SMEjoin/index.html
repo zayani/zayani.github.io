@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Grow More - SME Join</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body,
+      html {
+        font-family: sans-serif;
+
+        margin: 0;
+        padding: 0;
+        background-color: #fbfbfd;
+        height: 100vh;
+      }
+
+      form {
+        margin-top: -20px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      #screen {
+        padding: 30px;
+
+        width: 100%;
+      }
+
+      @media (min-width: 800px) {
+        body {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        #screen {
+          width: 500px;
+          background: #fff;
+          border-radius: 30px;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
+            0 1px 2px rgba(0, 0, 0, 0.24);
+          overflow: auto;
+          max-height: 100vh;
+          display: flex;
+          flex-direction: column;
+        }
+      }
+
+      form {
+        align-self: start;
+        flex: 0 0 100%;
+        width: 100%;
+      }
+
+      .input {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .input label {
+        width: 100%;
+      }
+
+      .input + .input,
+      .input + input {
+        margin-top: 30px;
+      }
+
+      input {
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid;
+        width: 200px;
+      }
+
+      input[type="text"] {
+        border: none;
+        border-bottom: 1px solid #ccc;
+        border-radius: 0;
+        background: none;
+        width: 100%;
+      }
+
+      input[type="text"]:focus {
+        border-bottom: 1px solid #000;
+        outline: none;
+      }
+
+      .input.required > label::after {
+        content: "*";
+        color: gray;
+      }
+
+      input::placeholder {
+        color: #ccc;
+      }
+
+      input[type="submit"],
+      input[type="button"],
+      button {
+        background: none;
+        border: 1px solid;
+        padding: 10px;
+        border-radius: 10px;
+        width: 200px;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+
+      input[type="submit"],
+      button {
+        align-self: flex-end;
+        font-size: 1.25rem;
+      }
+
+      select {
+        border: none;
+        width: 100%;
+      }
+
+      option {
+        padding: 10px;
+        width: 100%;
+      }
+
+      select:focus {
+        outline: none;
+      }
+
+      option {
+        border-radius: 10px;
+        position: relative;
+      }
+
+      option::after {
+        content: " ";
+        display: block;
+        width: 10px;
+        height: 10px;
+        border: 1px solid #ccc;
+        position: absolute;
+        top: 5px;
+        height: calc(100% - 10px);
+        left: 0;
+        width: calc(100% - 5px);
+        border-radius: 5px;
+      }
+
+      option:checked::after {
+        border: none;
+      }
+
+      /* Radio button styles */
+      .radio-group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .radio-wrapper {
+        position: relative;
+      }
+
+      .radio-wrapper input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .radio-wrapper label {
+        display: inline-block;
+        padding: 10px 15px;
+
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .radio-wrapper input[type="radio"]:checked + label {
+        background-color: #3498db;
+        border-color: #2980b9;
+        color: white;
+      }
+
+      .radio-wrapper label:hover {
+        background-color: #e0e0e0;
+      }
+
+      input[type="submit"],
+      input[type="button"],
+      button {
+        background-color: #ffffff; /* Explicit background color */
+        border: 1px solid #000000; /* Explicit border color */
+        color: #000000; /* Explicit text color */
+        padding: 10px;
+        border-radius: 10px;
+        width: 200px;
+        cursor: pointer;
+        margin-top: 20px;
+        -webkit-appearance: none; /* Reset default appearance for Safari */
+        appearance: none;
+      }
+
+      input[type="submit"],
+      button {
+        align-self: flex-end;
+        font-size: 1.25rem;
+      }
+
+      /* Add hover styles for better user feedback */
+      input[type="submit"]:hover,
+      input[type="button"]:hover,
+      button:hover {
+        background-color: #f0f0f0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="screen">Loading...</div>
+    <script src="SMEjoin5.js"></script>
+  </body>
+</html>
