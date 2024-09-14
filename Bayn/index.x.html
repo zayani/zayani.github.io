@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Bayn connects startups, SMEs, and investors in the GCC region, facilitating deals including fundraising, mergers, and acquisitions. Tech-driven solutions for seamless deal-making." />
+  <meta name="keywords"
+    content="Bayn, startups, SMEs, investors, GCC, fundraising, mergers, acquisitions, deal-making, business growth, tech automation" />
+  <meta name="author" content="Bayn" />
+  <title>Bayn</title>
+
+  <link rel="icon" type="image/png" href="icon0.png" />
+  <link rel="icon" type="image/png" href="icon.png" media="(prefers-color-scheme: dark)" />
+
+  <style>
+    /**root vars */
+    :root {
+      --primary-color: #1d0f9f;
+      --secondary-color: #f4f4f4;
+      --link-color: #fff;
+      --link-hover-color: #000;
+    }
+
+    html {
+      scroll-padding-top: 30px;
+      scroll-behavior: smooth;
+    }
+
+    .button {
+      background-color: var(--primary-color);
+      color: var(--secondary-color);
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+      text-decoration: none;
+    }
+
+    button {
+      background-color: var(--primary-color);
+      color: var(--secondary-color);
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+    }
+
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      padding-top: 30px;
+    }
+
+    .logo {
+      height: 20px;
+    }
+
+    header {
+      background-color: var(--primary-color);
+      overflow: hidden;
+
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+    }
+
+    header a {
+      float: left;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      line-height: 28px;
+    }
+
+    header a:hover {
+      background-color: #ddd;
+      color: var(--primary-color);
+    }
+
+    header .icon {
+      display: none;
+    }
+
+    #home {
+      padding: 20px;
+    }
+
+    #home h2 {
+      font-size: 2em;
+      color: var(--primary-color);
+    }
+
+
+    footer {
+      margin-top: 20px;
+      background-color: var(--primary-color);
+      color: var(--secondary-color);
+      text-align: center;
+      padding: 10px;
+
+
+
+    }
+
+    #home {
+      position: relative;
+      padding-right: 250px;
+      background-image: url("aboutimg2.png");
+      background-size: 200px;
+      background-repeat: no-repeat;
+      background-position: center;
+
+      padding-bottom: 40px;
+      background-position: bottom right 10px;
+    }
+
+
+
+    #about {
+      padding: 20px;
+      background: var(--primary-color);
+      color: var(--secondary-color);
+    }
+
+    @media screen and (max-width: 800px) {
+      header a:not(:first-child) {
+        display: none;
+      }
+
+      header a.icon {
+        float: right;
+        display: block;
+      }
+
+
+      header.responsive .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+
+      header.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+      }
+
+      #home {
+        padding-right: 0;
+        padding-bottom: 230px;
+        background-position: bottom center;
+      }
+
+
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a href="#home"><img class="logo" src="logo3.png" alt="Bayn Logo" /></a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+    <a href="#blog">Blog</a>
+    <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">&#9776;</a>
+  </header>
+
+  <section id="home">
+    <h2>Bridging Business and Opportunity</h2>
+    <p>
+      Bayn, meaning "in-between," is your essential link to drive successful
+      deals across the GCC region. We specialize in connecting startups, SMEs,
+      and investors to facilitate fundraising, mergers, and acquisitions. With
+      tech-driven processes, we simplify complex deals and empower businesses
+      to seize growth opportunities in a fast-evolving entrepreneurial
+      ecosystem.
+    <div class="aboutimg"></div>
+    </p>
+    <br>
+    <a href="/join/" class="button">Get Started</a>
+
+  </section>
+
+  <section id="about">
+    <h2>About Bayn</h2>
+    <p>
+      Bayn is a tech-driven platform that connects startups, SMEs, and
+      investors in the GCC region. Our mission is to empower businesses to
+      grow by facilitating seamless deal-making processes. We leverage
+      cutting-edge technology to simplify fundraising, mergers, and
+      acquisitions, enabling businesses to capitalize on growth
+      opportunities.
+    </p>
+  </section>
+
+  <!-------------->
+
+  <style>
+    .services-container {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f0f0f0;
+    }
+
+    .services-container h1 {
+      color: #2c3e50;
+    }
+
+    .services-container section {
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .services-container .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .services-container .service-card {
+      background: #f9f9f9;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .services-container .service-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .services-container .image-container {
+      position: relative;
+      width: 100%;
+      padding-top: 100%;
+    }
+
+    .services-container .service-card img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .services-container .service-content {
+      padding: 15px;
+    }
+
+    .services-container .service-content h3 {
+      margin-top: 0;
+      color: #3498db;
+      font-size: 1.1em;
+    }
+
+    .services-container .service-content p {
+      font-size: 0.9em;
+    }
+
+    .services-container .section-title {
+      grid-column: 1 / -1;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 700px) and (min-width: 501px) {
+      .services-container .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto auto;
+      }
+
+      .services-container .section-title {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        display: flex;
+        align-items: center;
+        margin-bottom: 0;
+      }
+
+      .services-container .service-card:nth-child(2) {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+      }
+
+      .services-container .service-card:nth-child(3) {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+      }
+
+      .services-container .service-card:nth-child(4) {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .services-container .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services-container .section-title {
+        grid-column: 1 / -1;
+      }
+    }
+  </style>
+
+  <div class="services-container" id="services">
+    <h1>Our Services</h1>
+
+    <section style="background-color: #e6f7ff;">
+        <div class="services-grid">
+            <h2 class="section-title">Deal Facilitation</h2>
+            <div class="service-card">
+                <div class="image-container">
+                    <img src="fundraising.webp" alt="Fundraising">
+                </div>
+                <div class="service-content">
+                    <h3>Fundraising</h3>
+                    <p>Connecting startups and SMEs with investors to secure capital for growth and expansion.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="image-container">
+                    <img src="mergers.webp" alt="Mergers & Acquisitions">
+                </div>
+                <div class="service-content">
+                    <h3>Mergers & Acquisitions</h3>
+                    <p>Facilitating strategic mergers and acquisitions to enhance business value and market position.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="image-container">
+                    <img src="partnership.jpg" alt="Partnership Formation">
+                </div>
+                <div class="service-content">
+                    <h3>Partnership Formation</h3>
+                    <p>Helping businesses identify and establish key strategic partnerships with other companies or investors.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background-color: #fff0f5;">
+        <div class="services-grid">
+            <h2 class="section-title">Investment Readiness Preparation</h2>
+            <div class="service-card">
+                <div class="image-container">
+                    <img src="/api/placeholder/300/300" alt="Business Valuation">
+                </div>
+                <div class="service-content">
+                    <h3>Business Valuation</h3>
+                    <p>Offering expert valuation services to determine accurate market value for startups and SMEs.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="image-container">
+                    <img src="/api/placeholder/300/300" alt="Financial Modeling">
+                </div>
+                <div class="service-content">
+                    <h3>Financial Modeling</h3>
+                    <p>Assisting companies in developing robust financial models to attract investors.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="image-container">
+                    <img src="/api/placeholder/300/300" alt="Pitch Deck Development">
+                </div>
+                <div class="service-content">
+                    <h3>Pitch Deck Development</h3>
+                    <p>Creating compelling pitch decks and presentations to engage investors and stakeholders effectively.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background-color: #f0fff0;">
+        <div class="services-grid">
+            <h2 class="section-title">Strategic Advisory</h2>
+            <div class="service-card">
+                <div class="image-container">
+                    <img src="/api/placeholder/300/300" alt="Growth Strategy Consulting">
+                </div>
+                <div class="service-content">
+                    <h3>Growth Strategy Consulting</h3>
+                    <p>Advising businesses on long-term growth strategies, including market expansion and scaling operations.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="image-container">
+                    <img src="/api/placeholder/300/300" alt="Exit Strategy Planning">
+                </div>
+                <div class="service-content">
+                    <h3>Exit Strategy Planning</h3>
+                    <p>Helping entrepreneurs and business owners plan and execute successful exit strategies.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="image-container">
+                    <img src="/api/placeholder/300/300" alt="Market Analysis & Feasibility Studies">
+                </div>
+                <div class="service-content">
+                    <h3>Market Analysis & Feasibility Studies</h3>
+                    <p>Providing data-driven insights into market conditions and potential opportunities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background-color: #fff5e6;">
+        <div class="services-grid">
+            <h2 class="section-title">Tech-Enabled Deal Automation</h2>
+            <div class="service-card">
+                <div class="image-container">
+                    <img src="/api/placeholder/300/300" alt="Automated Deal Platform">
+                </div>
+                <div class="service-content">
+                    <h3>Automated Deal Platform</h3>
+                    <p>Offering a tech-driven platform to streamline and manage deal flow, making the process more efficient.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="image-container">
+                    <img src="/api/placeholder/300/300" alt="Digital Due Diligence">
+                </div>
+                <div class="service-content">
+                    <h3>Digital Due Diligence</h3>
+                    <p>Using advanced technology to facilitate quicker, more thorough due diligence processes.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="image-container">
+                    <img src="/api/placeholder/300/300" alt="Investor Matching">
+                </div>
+                <div class="service-content">
+                    <h3>Investor Matching</h3>
+                    <p>Utilizing algorithms to match startups and SMEs with suitable investors based on industry, funding needs, and growth potential.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background-color: #f5f5f5;">
+        <div class="services-grid">
+            <h2 class="section-title">Capital Raising Support</h2>
+            <div class="service-card">
+                <div class="image-container">
+                    <img src="/api/placeholder/300/300" alt="Debt Financing">
+                </div>
+                <div class="service-content">
+                    <h3>Debt Financing</h3>
+                    <p>Helping businesses secure loans or lines of credit to finance operations or expansion.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="image-container">
+                    <img src="/api/placeholder/300/300" alt="Equity Financing">
+                </div>
+                <div class="service-content">
+                    <h3>Equity Financing</h3>
+                    <p>Assisting startups and SMEs in raising equity capital through private placements or venture capital.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="image-container">
+                    <img src="/api/placeholder/300/300" alt="Alternative Financing">
+                </div>
+                <div class="service-content">
+                    <h3>Alternative Financing</h3>
+                    <p>Providing guidance on crowdfunding, angel investment, or other alternative funding sources.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background-color: #e6e6fa;">
+        <div class="services-grid">
+            <h2 class="section-title">Transaction Support</h2>
+            <div class="service-card">
+                <div class="image-container">
+                    <img src="/api/placeholder/300/300" alt="Negotiation & Structuring">
+                </div>
+                <div class="service-content">
+                    <h3>Negotiation & Structuring</h3>
+                    <p>Offering expert advice on deal structuring and negotiation tactics to secure favorable terms for businesses.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="image-container">
+                    <img src="/api/placeholder/300/300" alt="Legal & Regulatory Guidance">
+                </div>
+                <div class="service-content">
+                    <h3>Legal & Regulatory Guidance</h3>
+                    <p>Assisting with legal, compliance, and regulatory requirements in deal transactions.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="image-container">
+                    <img src="/api/placeholder/300/300" alt="Post-Merger Integration">
+                </div>
+                <div class="service-content">
+                    <h3>Post-Merger Integration</h3>
+                    <p>Supporting businesses through the integration process after mergers or acquisitions, ensuring a smooth transition.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background-color: #fffaf0;">
+        <div class="services-grid">
+            <h2 class="section-title">Networking & Community Building</h2>
+            <div class="service-card">
+                <div class="image-container">
+                    <img src="/api/placeholder/300/300" alt="Investor & Entrepreneur Networking Events">
+                </div>
+                <div class="service-content">
+                    <h3>Investor & Entrepreneur Networking Events</h3>
+                    <p>Hosting events that bring together investors, startups, and SMEs to foster connections.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="image-container">
+                    <img src="/api/placeholder/300/300" alt="Mentorship Programs">
+                </div>
+                <div class="service-content">
+                    <h3>Mentorship Programs</h3>
+                    <p>Providing access to experienced business mentors to guide startups and SMEs in their growth journey.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="image-container">
+                    <img src="/api/placeholder/300/300" alt="Industry Insights & Workshops">
+                </div>
+                <div class="service-content">
+                    <h3>Industry Insights & Workshops</h3>
+                    <p>Offering educational workshops and insights on investment trends, market conditions, and growth strategies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Bayn | Empowering Growth in the GCC</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      var x = document.querySelector("header");
+      if (!x.className.includes("responsive")) {
+        //add responsive
+        x.classList.add("responsive");
+      } else {
+        //remove responsive
+        x.classList.remove("responsive");
+      }
+    }
+
+    [...document.querySelectorAll("header>a:not(.icon)")].forEach((el) =>
+      el.addEventListener("click", () => {
+        document.querySelector("header").classList.remove("responsive");
+      })
+    );
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>بين - نصل بين الريادة والفرصة</title>
+    <meta
+      name="description"
+      content="منصة بين هي صلتك الأساسية لتنمية عملك. نتخصص في ربط الشركات بالمستثمرين، ونقدم الخدمات المساندة التي تساعدك في تحقيق النمو لعملك."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="ico.png" />
+    <style>
+      :root {
+        --primary-color: #ffffff;
+        --accent-color: #006600;
+        --text-color: #333333;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Almarai", sans-serif;
+        color: var(--text-color);
+        line-height: 1.6;
+        padding-top: 70px;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      header {
+        background-color: var(--primary-color);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        padding: 10px 0;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        height: 40px;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 20px;
+      }
+
+      .nav-links a {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 18px;
+        transition: color 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: #004d00;
+      }
+
+      .button {
+        display: inline-block;
+        color: #fff;
+        background-color: var(--accent-color);
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 700;
+        transition: background-color 0.3s ease;
+      }
+
+      .button:hover {
+        background-color: #004d00;
+      }
+
+      section {
+        padding: 80px 0;
+      }
+
+      h1,
+      h2 {
+        color: var(--accent-color);
+        margin-bottom: 20px;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+        text-align: center;
+      }
+
+      #home {
+        background-color: #f9f9f9;
+      }
+
+      .hero {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+      }
+
+      .hero-content {
+        flex: 1;
+      }
+
+      .hero-video {
+        flex: 1;
+        aspect-ratio: 16 / 9;
+        background: url("v4.png") no-repeat center center;
+        background-size: cover;
+        position: relative;
+        cursor: pointer;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      .hero-video video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+      }
+
+      .service-card {
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .service-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .service-card img {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 15px;
+      }
+
+      .service-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+
+      #achievements {
+        background-color: var(--accent-color);
+        color: #fff;
+      }
+
+      .achievements-grid {
+        /* display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px; */
+        display: flex;
+        justify-content: space-around;
+        gap: 40px;
+        margin-top: 40px;
+        flex-wrap: wrap;
+        padding: 0 20px;
+      }
+
+      .achievement-card {
+        text-align: center;
+        width: 300px;
+      }
+
+      .achievement-card .counter {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+
+      .achievement-card .description {
+        font-size: 1rem;
+      }
+
+      footer {
+        background-color: #f9f9f9;
+        padding: 40px 0;
+        text-align: center;
+      }
+
+      footer .logo {
+        height: 80px;
+        margin-bottom: 20px;
+      }
+
+      .email-link {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      .email-link:hover {
+        color: #004d00;
+      }
+
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: var(--accent-color);
+      }
+
+      @media screen and (max-width: 768px) {
+        .hero {
+          flex-direction: column;
+        }
+
+        .hero-content,
+        .hero-video {
+          width: 100%;
+        }
+
+        .nav-links {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background-color: var(--primary-color);
+          flex-direction: column;
+          align-items: center;
+          padding: 20px 0;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+
+        .menu-toggle {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <a href="#home">
+            <img src="logo.svg" alt="Bayn" class="logo" />
+          </a>
+          <button class="menu-toggle">☰</button>
+          <div class="nav-links">
+            <a href="#services">خدماتنا</a>
+            <a href="#achievements">إنجازاتنا</a>
+            <a href="#contact">تواصل</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="home">
+        <div class="container">
+          <div class="hero">
+            <div class="hero-content">
+              <h1>نصل <strong>بين</strong> الريادة والفرصة</h1>
+              <p>
+                منصة <strong>بين</strong> هي صلتك الأساسية لتنمية عملك. نتخصص في
+                ربط الشركات بالمستثمرين، ونقدم الخدمات المساندة التي تساعدك في
+                تحقيق النمو لعملك
+              </p>
+              <br />
+              <a href="/join/" class="button">انضم إلينا</a>
+            </div>
+            <div class="hero-video">
+              <video src="vid3.mp4" controls></video>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="services">
+        <div class="container">
+          <h2>خدماتنا</h2>
+          <div class="services-grid">
+            <div class="service-card">
+              <img src="icons/shake.svg" alt="إتمام الصفقة" />
+              <h3>إتمام الصفقة</h3>
+              <p>
+                منصة "بين" تدعمك في إتمام صفقات بيع، دمج، أو استحواذ الشركات
+                بكفاءة
+              </p>
+            </div>
+            <div class="service-card">
+              <img src="icons/partner.svg" alt="الشريك المناسب" />
+              <h3>الشريك المناسب</h3>
+              <p>
+                تسهّل منصة "بين" عملية العثور على الشريك المناسب، سواء كنت تبحث
+                عن شريك مالي أو شريك خدمات
+              </p>
+            </div>
+            <div class="service-card">
+              <img src="icons/evaluation.svg" alt="تقييم الأعمال" />
+              <h3>تقييم الأعمال</h3>
+              <p>
+                نقدّم خدمات تقييم متخصصة لتحديد القيمة السوقية الدقيقة للشركات
+                الناشئة، الصغيرة والمتوسطة، بالإضافة إلى تقييم جاهزية المشروع
+              </p>
+            </div>
+            <div class="service-card">
+              <img src="icons/presentation2.svg" alt="تطوير العرض التقديمي" />
+              <h3>تطوير العرض التقديمي</h3>
+              <p>
+                نقوم بإعداد عرض تقديمي مميز يُمكنك من تقديم مشروعك للمستثمرين
+                بأفضل صورة
+              </p>
+            </div>
+            <div class="service-card">
+              <img src="icons/loan.svg" alt="الاقتراض المباشر" />
+              <h3>الاقتراض المباشر</h3>
+              <p>
+                نساعدك في الوصول إلى خيارات الاقتراض المباشر التي تتناسب مع
+                احتياجاتك
+              </p>
+            </div>
+            <div class="service-card">
+              <img src="icons/legal.svg" alt="الاستشارات القانونية" />
+              <h3>الاستشارات القانونية</h3>
+              <p>
+                نوفر خدمات الاستشارات القانونية المتخصصة في مجال الاستثمار لضمان
+                حماية مصالحك
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <style>
+        .counter[data-cur="ر.س"]::after {
+          content: "ر.س";
+          font-size: 0.7rem;
+          margin-right: 5px;
+        }
+
+        .counter[data-cur="$"]::before {
+          content: "$";
+          font-size: 1rem;
+          margin-right: 5px;
+        }
+      </style>
+
+      <section id="achievements">
+        <div class="container" style="padding: 0">
+          <h2 style="color: #fff">من إنجازاتنا</h2>
+          <div class="achievements-grid">
+            <div class="achievement-card">
+              <div class="counter" data-cur="$" data-target="50000000">
+                50,000,000
+              </div>
+              <div class="description">
+                جمع حصه رأس مال شركه تمويل عقاري بقيمة
+              </div>
+            </div>
+            <div class="achievement-card">
+              <div class="counter" data-cur="ر.س" data-target="500000000">
+                500,000,000
+              </div>
+              <div class="description">استشاري بيع مصنع سيراميك بقيمة</div>
+            </div>
+            <div class="achievement-card">
+              <div class="counter" data-cur="ر.س" data-target="200000000">
+                200,000,000
+              </div>
+              <div class="description">استشاري بيع مصنع بريكاست بقيمة</div>
+            </div>
+            <div class="achievement-card">
+              <div class="counter" data-cur="$" data-target="15000000">
+                15,000,000
+              </div>
+              <div class="description">تاسيس شركه قوارب ويخوت حققت مبيعات</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact">
+      <div class="container">
+        <img src="logo.svg" alt="Bayn" class="logo" />
+        <p>
+          تواصل معنا على البريد الإلكتروني:
+          <a href="mailto:reach@byan.me" class="email-link">reach@byan.me</a>
+        </p>
+        <p>بين &copy; 2024</p>
+      </div>
+    </footer>
+
+    <script>
+      function formatNumber(num) {
+        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      }
+
+      function animateCounter(counter) {
+        const target = parseInt(counter.getAttribute("data-target"));
+        let current = 0;
+        const increment = Math.ceil(target / 100);
+
+        function updateCounter() {
+          if (current < target) {
+            current += increment;
+            counter.innerText = formatNumber(Math.min(current, target));
+            requestAnimationFrame(updateCounter);
+          } else {
+            counter.innerText = formatNumber(target);
+          }
+        }
+
+        updateCounter();
+      }
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              animateCounter(entry.target);
+              // observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.5,
+        }
+      );
+
+      document.querySelectorAll(".counter").forEach((counter) => {
+        observer.observe(counter);
+      });
+
+      // Add mobile menu toggle functionality
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navLinks = document.querySelector(".nav-links");
+
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+
+      //close the mobile menu when a link is clicked
+      navLinks.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+      });
+    </script>
+  </body>
+</html>
