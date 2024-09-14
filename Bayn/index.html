@@ -1,387 +1,434 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Company Name - Services and Contact</title>
-  <meta name="description"
-    content="Discover our services and get in touch with us. We provide top-notch solutions for your needs." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet" />
-  <link rel="icon" type="image/png" href="ico.png" />
-  <style>
-    :root {
-      --primary-color: #ffffff;
-      --accent-color: #006600;
-      --text-color: #333333;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      color: var(--text-color);
-      scroll-behavior: smooth;
-      scroll-padding-top: 70px;
-      font-family: "Almarai", sans-serif;
-      font-weight: 300;
-      font-style: normal;
-      padding-top: 70px;
-    }
-  </style>
-</head>
-
-<body dir="rtl">
-  <style>
-    header {
-      background-color: var(--primary-color);
-      display: flex;
-      height: 70px;
-      align-items: center;
-      font-weight: 500;
-      font-size: 24px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-    }
-
-    header a {
-      color: var(--accent-color);
-      text-decoration: none;
-      margin: 0 20px;
-    }
-
-    header .logo {
-      height: 40px;
-      margin: 0 20px;
-    }
-
-    .button {
-      color: #fff;
-      padding: 10px 20px;
-      border: 2px solid #fff;
-      border-radius: 10px;
-      font-size: 16px;
-      font-weight: 700;
-      cursor: pointer;
-      text-decoration: none;
-      position: relative;
-      overflow: hidden;
-      background-size: 200% 200%;
-    }
-
-    .button:hover {
-      background: #fff;
-      color: var(--accent-color);
-    }
-
-    .button::after {
-      content: "";
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      border-radius: 8px;
-
-      background: linear-gradient(130deg, #ffffff00, #ffffff, #ffffff00);
-      background-size: 200% 200%;
-      animation: shine 2s ease-out;
-      pointer-events: none;
-      opacity: 0;
-    }
-
-    @keyframes shine {
-      0% {
-        background-position: 10% 0%;
-        opacity: 0;
-      }
-
-      50% {
-        background-position: 91% 100%;
-        opacity: 1;
-      }
-
-      100% {
-        background-position: 10% 0%;
-        opacity: 0;
-      }
-    }
-  </style>
-  <header>
-    <a href="#home">
-      <img src="logo.svg" alt="Bayn" class="logo" />
-    </a>
-    <div style="flex: 1"></div>
-    <a href="#services">خدماتنا</a>
-    <a href="#achievements">إنجازاتنا</a>
-    <a href="#contact">تواصل</a>
-  </header>
-  <style>
-    main {}
-
-    section {
-      background: var(--accent-color);
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      font-size: 16px;
-      line-height: 28px;
-    }
-
-    section>div {
-      padding: 20px;
-      width: 100%;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .flexH {
-      display: flex;
-    }
-
-    #mainVideo {
-      background: url("v4.png") no-repeat center center;
-      background-size: contain;
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      position: relative;
-      cursor: pointer;
-      overflow: hidden;
-    }
-
-    #mainVideo>video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-
-    @media screen and (max-width: 800px) {
-      .flexH {
-        flex-direction: column;
-      }
-    }
-
-    #home {
-      padding: 50px 0;
-    }
-  </style>
-  <main>
-    <section id="home">
-      <div class="flexH" style="padding: 40px">
-        <div style="flex: 1" id="mainVideo">
-          <video src="vid3.mp4" style="width: 100%; height: 100%" controls></video>
-        </div>
-        <div style="flex: 0.25"></div>
-        <div style="flex: 1">
-          <h1>نصل <b>بين</b> الريادة والفرصة</h1>
-
-          <p>
-            منصة <b>بين</b> هي صلتك الأساسية لتنمية عملك. نتخصص في ربط الشركات
-            بالمستثمرين، ونقدم الخدمات المساندة التي تساعدك في تحقيق النمو
-            لعملك
-          </p>
-          <br />
-          <a href="/join/" class="button"> انضم إلينا </a>
-        </div>
-      </div>
-    </section>
-
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>بين - نصل بين الريادة والفرصة</title>
+    <meta
+      name="description"
+      content="منصة بين هي صلتك الأساسية لتنمية عملك. نتخصص في ربط الشركات بالمستثمرين، ونقدم الخدمات المساندة التي تساعدك في تحقيق النمو لعملك."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="ico.png" />
     <style>
-      #services {
-        background: #fff;
-        color: var(--accent-color);
-        padding: 40px 0;
+      :root {
+        --primary-color: #ffffff;
+        --accent-color: #006600;
+        --text-color: #333333;
       }
 
-      #services h2 {
-        text-align: center;
-        font-size: 32px;
-        font-weight: 700;
-        margin-bottom: 40px;
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
       }
 
-      .cards {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        flex-wrap: wrap;
+      body {
+        font-family: "Almarai", sans-serif;
+        color: var(--text-color);
+        line-height: 1.6;
+        padding-top: 70px;
       }
 
-      .card {
-        padding: 20px;
-        width: 300px;
-
-        text-align: center;
-      }
-
-      .card img {
-        width: 100px;
-        height: 100px;
+      .container {
+        width: 100%;
+        max-width: 1200px;
         margin: 0 auto;
+        padding: 0 20px;
       }
 
-      .card .title {
-        font-size: 24px;
-        font-weight: 700;
-        margin-top: 0;
-        margin-bottom: 10px;
+      header {
+        background-color: var(--primary-color);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        padding: 10px 0;
       }
 
-      .card .content {
-        font-size: 16px;
-        line-height: 24px;
-      }
-
-      @media screen and (max-width: 800px) {
-        .card {
-          width: 80vw;
-        }
-      }
-    </style>
-
-    <section id="services">
-      <h2>خدماتنا</h2>
-      <div class="cards">
-        <div class="card">
-          <img src="icons/shake.svg" />
-          <div class="title">إتمام الصفقة</div>
-          <div class="content">
-            منصة "بين" تدعمك في إتمام صفقات بيع، دمج، أو استحواذ الشركات
-            بكفاءة
-          </div>
-        </div>
-        <div class="card">
-          <img src="icons/partner.svg" />
-          <div class="title">الشريك المناسب</div>
-          <div class="content">
-            تسهّل منصة "بين" عملية العثور على الشريك المناسب، سواء كنت تبحث عن
-            شريك مالي أو شريك خدمات
-          </div>
-        </div>
-        <div class="card">
-          <img src="icons/evaluation.svg" />
-          <div class="title">تقييم الأعمال</div>
-          <div class="content">
-            نقدّم خدمات تقييم متخصصة لتحديد القيمة السوقية الدقيقة للشركات
-            الناشئة، الصغيرة والمتوسطة، بالإضافة إلى تقييم جاهزية المشروع
-          </div>
-        </div>
-        <div class="card">
-          <img src="icons/presentation2.svg" />
-          <div class="title">تطوير العرض التقديمي</div>
-          <div class="content">
-            نقوم بإعداد عرض تقديمي مميز يُمكنك من تقديم مشروعك للمستثمرين
-            بأفضل صورة
-          </div>
-        </div>
-        <div class="card">
-          <img src="icons/loan.svg" />
-          <div class="title">الاقتراض المباشر</div>
-          <div class="content">
-            نساعدك في الوصول إلى خيارات الاقتراض المباشر التي تتناسب مع
-            احتياجاتك
-          </div>
-        </div>
-        <div class="card">
-          <img src="icons/legal.svg" />
-          <div class="title">الاستشارات القانونية</div>
-          <div class="content">
-            نوفر خدمات الاستشارات القانونية المتخصصة في مجال الاستثمار لضمان
-            حماية مصالحك
-          </div>
-        </div>
-      </div>
-    </section>
-    <style>
-      .counter-container {
-        width: 350px;
-        padding: 20px;
-     
-        text-align: center;
-        font-size: 35px;
-      }
-
-      .counter {
-        
-        font-weight: 700;
-
-        text-align: center;
-        display: inline-block;
-      }
-
-      .usd::before {
-        content: "$";
-      
-      }
-
-      .sar::after {
-        content: " ر.س";
-        font-size: 20px;
-      }
-
-      #achievements>div {
+      nav {
         display: flex;
-        flex-direction: row;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
-        padding-top: 20px;
-        flex-wrap: wrap;
       }
 
-      .description {
-        font-size: 16px;
+      .logo {
+        height: 40px;
+      }
 
+      .nav-links {
+        display: flex;
+        gap: 20px;
+      }
+
+      .nav-links a {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 18px;
+        transition: color 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: #004d00;
+      }
+
+      .button {
+        display: inline-block;
+        color: #fff;
+        background-color: var(--accent-color);
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 700;
+        transition: background-color 0.3s ease;
+      }
+
+      .button:hover {
+        background-color: #004d00;
+      }
+
+      section {
+        padding: 80px 0;
+      }
+
+      h1,
+      h2 {
+        color: var(--accent-color);
         margin-bottom: 20px;
+      }
+
+      h1 {
+        font-size: 2.5rem;
       }
 
       h2 {
+        font-size: 2rem;
         text-align: center;
-        font-size: 32px;
+      }
+
+      #home {
+        background-color: #f9f9f9;
+      }
+
+      .hero {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+      }
+
+      .hero-content {
+        flex: 1;
+      }
+
+      .hero-video {
+        flex: 1;
+        aspect-ratio: 16 / 9;
+        background: url("v4.png") no-repeat center center;
+        background-size: cover;
+        position: relative;
+        cursor: pointer;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      .hero-video video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+      }
+
+      .service-card {
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .service-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .service-card img {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 15px;
+      }
+
+      .service-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+
+      #achievements {
+        background-color: var(--accent-color);
+        color: #fff;
+      }
+
+      .achievements-grid {
+        /* display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px; */
+        display: flex;
+        justify-content: space-around;
+        gap: 40px;
+        margin-top: 40px;
+        flex-wrap: wrap;
+        padding: 0 20px;
+      }
+
+      .achievement-card {
+        text-align: center;
+        width: 300px;
+      }
+
+      .achievement-card .counter {
+        font-size: 2.5rem;
         font-weight: 700;
+        margin-bottom: 10px;
+      }
+
+      .achievement-card .description {
+        font-size: 1rem;
+      }
+
+      footer {
+        background-color: #f9f9f9;
+        padding: 40px 0;
+        text-align: center;
+      }
+
+      footer .logo {
+        height: 80px;
         margin-bottom: 20px;
       }
+
+      .email-link {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      .email-link:hover {
+        color: #004d00;
+      }
+
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: var(--accent-color);
+      }
+
+      @media screen and (max-width: 768px) {
+        .hero {
+          flex-direction: column;
+        }
+
+        .hero-content,
+        .hero-video {
+          width: 100%;
+        }
+
+        .nav-links {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background-color: var(--primary-color);
+          flex-direction: column;
+          align-items: center;
+          padding: 20px 0;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+
+        .menu-toggle {
+          display: block;
+        }
+      }
     </style>
-    <section id="achievements">
+  </head>
 
-      <h2>من إنجازاتنا</h2>
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <a href="#home">
+            <img src="logo.svg" alt="Bayn" class="logo" />
+          </a>
+          <button class="menu-toggle">☰</button>
+          <div class="nav-links">
+            <a href="#services">خدماتنا</a>
+            <a href="#achievements">إنجازاتنا</a>
+            <a href="#contact">تواصل</a>
+          </div>
+        </nav>
+      </div>
+    </header>
 
-  <div>
-    <div class="counter-container ">
-      <div class="description">جمع حصه رأس مال شركه تمويل عقاري بقيمة </div>
-      <div class="counter usd" data-target="50000000">50000000</div>
-    </div>
+    <main>
+      <section id="home">
+        <div class="container">
+          <div class="hero">
+            <div class="hero-content">
+              <h1>نصل <strong>بين</strong> الريادة والفرصة</h1>
+              <p>
+                منصة <strong>بين</strong> هي صلتك الأساسية لتنمية عملك. نتخصص في
+                ربط الشركات بالمستثمرين، ونقدم الخدمات المساندة التي تساعدك في
+                تحقيق النمو لعملك
+              </p>
+              <br />
+              <a href="/join/" class="button">انضم إلينا</a>
+            </div>
+            <div class="hero-video">
+              <video src="vid3.mp4" controls></video>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <div class="counter-container ">
-      <div class="description">استشاري بيع مصنع سيراميك بقيمة</div>
-      <div class="counter sar" data-target="500000000">500000000</div>
-    </div>
+      <section id="services">
+        <div class="container">
+          <h2>خدماتنا</h2>
+          <div class="services-grid">
+            <div class="service-card">
+              <img src="icons/shake.svg" alt="إتمام الصفقة" />
+              <h3>إتمام الصفقة</h3>
+              <p>
+                منصة "بين" تدعمك في إتمام صفقات بيع، دمج، أو استحواذ الشركات
+                بكفاءة
+              </p>
+            </div>
+            <div class="service-card">
+              <img src="icons/partner.svg" alt="الشريك المناسب" />
+              <h3>الشريك المناسب</h3>
+              <p>
+                تسهّل منصة "بين" عملية العثور على الشريك المناسب، سواء كنت تبحث
+                عن شريك مالي أو شريك خدمات
+              </p>
+            </div>
+            <div class="service-card">
+              <img src="icons/evaluation.svg" alt="تقييم الأعمال" />
+              <h3>تقييم الأعمال</h3>
+              <p>
+                نقدّم خدمات تقييم متخصصة لتحديد القيمة السوقية الدقيقة للشركات
+                الناشئة، الصغيرة والمتوسطة، بالإضافة إلى تقييم جاهزية المشروع
+              </p>
+            </div>
+            <div class="service-card">
+              <img src="icons/presentation2.svg" alt="تطوير العرض التقديمي" />
+              <h3>تطوير العرض التقديمي</h3>
+              <p>
+                نقوم بإعداد عرض تقديمي مميز يُمكنك من تقديم مشروعك للمستثمرين
+                بأفضل صورة
+              </p>
+            </div>
+            <div class="service-card">
+              <img src="icons/loan.svg" alt="الاقتراض المباشر" />
+              <h3>الاقتراض المباشر</h3>
+              <p>
+                نساعدك في الوصول إلى خيارات الاقتراض المباشر التي تتناسب مع
+                احتياجاتك
+              </p>
+            </div>
+            <div class="service-card">
+              <img src="icons/legal.svg" alt="الاستشارات القانونية" />
+              <h3>الاستشارات القانونية</h3>
+              <p>
+                نوفر خدمات الاستشارات القانونية المتخصصة في مجال الاستثمار لضمان
+                حماية مصالحك
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <div class="counter-container">
-      <div class="description">استشاري بيع مصنع بريكاست بقيمة</div>
-      <div class="counter sar" data-target="200000000">200000000</div>
-    </div>
+      <style>
+        .counter[data-cur="ر.س"]::after {
+          content: "ر.س";
+          font-size: 0.7rem;
+          margin-right: 5px;
+        }
 
-    <div class="counter-container">
-      <div class="description">تاسيس شركه قوارب ويخوت حققت مبيعات</div>
-      <div class="counter usd" data-target="15000000">15000000</div>
-    </div>
+        .counter[data-cur="$"]::before {
+          content: "$";
+          font-size: 1rem;
+          margin-right: 5px;
+        }
+      </style>
 
-  </div>
+      <section id="achievements">
+        <div class="container" style="padding: 0">
+          <h2 style="color: #fff">من إنجازاتنا</h2>
+          <div class="achievements-grid">
+            <div class="achievement-card">
+              <div class="counter" data-cur="$" data-target="50000000">
+                50,000,000
+              </div>
+              <div class="description">
+                جمع حصه رأس مال شركه تمويل عقاري بقيمة
+              </div>
+            </div>
+            <div class="achievement-card">
+              <div class="counter" data-cur="ر.س" data-target="500000000">
+                500,000,000
+              </div>
+              <div class="description">استشاري بيع مصنع سيراميك بقيمة</div>
+            </div>
+            <div class="achievement-card">
+              <div class="counter" data-cur="ر.س" data-target="200000000">
+                200,000,000
+              </div>
+              <div class="description">استشاري بيع مصنع بريكاست بقيمة</div>
+            </div>
+            <div class="achievement-card">
+              <div class="counter" data-cur="$" data-target="15000000">
+                15,000,000
+              </div>
+              <div class="description">تاسيس شركه قوارب ويخوت حققت مبيعات</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
-    </section>
+    <footer id="contact">
+      <div class="container">
+        <img src="logo.svg" alt="Bayn" class="logo" />
+        <p>
+          تواصل معنا على البريد الإلكتروني:
+          <a href="mailto:reach@byan.me" class="email-link">reach@byan.me</a>
+        </p>
+        <p>بين &copy; 2024</p>
+      </div>
+    </footer>
 
     <script>
       function formatNumber(num) {
@@ -391,13 +438,13 @@
       function animateCounter(counter) {
         const target = parseInt(counter.getAttribute("data-target"));
         let current = 0;
-        const increment = Math.ceil(target / 102); 
+        const increment = Math.ceil(target / 100);
 
         function updateCounter() {
           if (current < target) {
             current += increment;
             counter.innerText = formatNumber(Math.min(current, target));
-            setTimeout(updateCounter, 1000 / 102);
+            requestAnimationFrame(updateCounter);
           } else {
             counter.innerText = formatNumber(target);
           }
@@ -409,54 +456,33 @@
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
-            if (entry.isIntersecting && entry.intersectionRatio === 1) {
+            if (entry.isIntersecting) {
               animateCounter(entry.target);
+              // observer.unobserve(entry.target);
             }
           });
         },
         {
-          threshold: 1.0,
-          rootMargin: "0px",
+          threshold: 0.5,
         }
       );
 
       document.querySelectorAll(".counter").forEach((counter) => {
         observer.observe(counter);
       });
+
+      // Add mobile menu toggle functionality
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navLinks = document.querySelector(".nav-links");
+
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+
+      //close the mobile menu when a link is clicked
+      navLinks.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+      });
     </script>
-    </section>
-  </main>
-  <style>
-    footer {
-      background: #fff;
-      border-top: 2px solid var(--accent-color);
-      color: var(--accent-color);
-      text-align: center;
-      padding: 20px;
-      font-size: 16px;
-    }
-
-    footer a {
-      color: var(--accent-color);
-      text-decoration: none;
-    }
-
-    footer .logo {
-      height: 100px;
-    }
-  </style>
-  <footer id="contact">
-
-    <img src="logo.svg" alt="Bayn" class="logo" />
-
-    <p>تواصل معنا على البريد الإلكتروني: <a href="mailto:reach@byan.me">
-      reach@byan.me
-    </a>
-    </p>
-    <p>بين &copy; 2024</p>
-
-  
-  </footer>
-</body>
-
+  </body>
 </html>
