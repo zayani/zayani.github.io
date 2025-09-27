@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resident Evil Requiem Soundboard 0.2</title>
+    <title>Resident Evil Requiem Soundboard 0.3</title>
     <style>
         body {
             font-family: sans-serif;
@@ -79,6 +79,69 @@
     <div id="bites"></div>
 
     <script>
+
+        const clientID = localStorage.getItem('clientID') || crypto.randomUUID();
+
+        localStorage.setItem('clientID', clientID);
+
+        const API_KEY = 'AIzaSyB5FM0UrTbGauldO-5uMrcJZYjWTyCyfQI';
+        const PROJECT_ID = 'z-resident-evil';
+
+
+
+
+
+        const BASE_URL = `https://firestore.googleapis.com/v1/projects/${PROJECT_ID}/databases/(default)/documents`;
+
+        function transformToFirestoreFormat(data) {
+            const transformed = {};
+            for (const [key, value] of Object.entries(data)) {
+                if (typeof value === 'string') {
+                    transformed[key] = { stringValue: value };
+                } else if (typeof value === 'number') {
+                    transformed[key] = { integerValue: value.toString() };
+                } else if (typeof value === 'boolean') {
+                    transformed[key] = { booleanValue: value };
+                } else if (Array.isArray(value)) {
+                    transformed[key] = {
+                        arrayValue: {
+                            values: value.map(item => transformToFirestoreFormat({ item }).item)
+                        }
+                    };
+                }
+
+            }
+            return transformed;
+        }
+
+
+        async function createOrUpdateDocument(collection, documentId, data) {
+            const url = `${BASE_URL}/${collection}/${documentId}?key=${API_KEY}`;
+
+            data = transformToFirestoreFormat(data);
+
+            console.log(data);
+
+            const response = await fetch(url, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ fields: data })
+            });
+
+            console.log(response);
+
+            return response.json();
+        }
+
+
+        createOrUpdateDocument(clientID, 'event:' + Date.now(), {
+            event: 'visit',
+            timestamp: Date.now(),
+            userAgent: navigator.userAgent,
+        });
+
         let soundBites = [
             { name: "Grace Ashcroft", src: "a/GraceAshcroft.webm", thumb: "a/GraceAshcroft.jpg" },
             { name: "Wrenwood Hotel", src: "a/WrenwoodHotel.webm", thumb: "a/WrenwoodHotel.jpg" },
@@ -121,6 +184,12 @@
             btn.onclick = () => {
                 let audio = new Audio(soundBite.src);
                 audio.play();
+
+                createOrUpdateDocument(clientID, 'event:' + Date.now(), {
+                    event: 'play',
+                    timestamp: Date.now(),
+                    soundBite: soundBite.name,
+                });
             }
 
             //inset thumbnail as background image
@@ -132,24 +201,20 @@
 
         });
 
+        //beforeunload event to log when user leaves
+        window.addEventListener("beforeunload", () => {
+            createOrUpdateDocument(clientID, 'event:' + Date.now(), {
+                event: 'leave',
+                timestamp: Date.now(),
+            });
+        });
 
     </script>
 
 
-    <!-- Default Statcounter code for Resident Evil Requiem
-Soundboard https://zayani.github.io/requiemSB/ -->
-    <script type="text/javascript">
-        var sc_project = 13169462;
-        var sc_invisible = 1;
-        var sc_security = "3cc07f17"; 
-    </script>
-    <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
-    <noscript>
-        <div class="statcounter"><a title="free web stats" href="https://statcounter.com/" target="_blank"><img
-                    class="statcounter" src="https://c.statcounter.com/13169462/0/3cc07f17/1/" alt="free web stats"
-                    referrerPolicy="no-referrer-when-downgrade"></a></div>
-    </noscript>
-    <!-- End of Statcounter Code -->
+
+
+
 </body>
 
 </html>
