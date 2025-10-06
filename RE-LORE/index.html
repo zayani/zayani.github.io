@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0px;
+            position: relative;
+        }
+
+
+
+        #lore-events {
+            max-width: 800px;
+            margin: auto;
+            position: relative;
+        }
+
+        #lore-line {
+            position: absolute;
+            inset-inline-start: calc(min(100px, 17.5vw) + 16px);
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: #444;
+            z-index: -1;
+
+        }
+
+        .lore-event {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .lore-event.tag {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 20px;
+            background: #444;
+            color: white;
+        }
+
+
+        .lore-event:not(.tag) {
+            margin: 0 20px;
+            min-height: 200px;
+            padding-inline-start: calc(min(200px, 35vw));
+        }
+
+
+        .lore-event+.lore-event {
+            margin-top: 50px;
+        }
+
+        .lore-event-image {
+            background: gray;
+            position: absolute;
+            top: 0;
+            height: 100%;
+            max-height: 200px;
+            inset-inline-start: 0px;
+            display: block;
+            width: 200px;
+            max-width: 35vw;
+            border-radius: 10px;
+            object-fit: cover;
+            object-position: top center;
+            border: 2px solid #444;
+
+        }
+
+        .lore-event-title {
+            font-size: 18px;
+            font-weight: bold;
+            padding: 0px 10px;
+        }
+
+        .lore-event-text {
+            font-size: 16px;
+            line-height: 1.5;
+            padding: 10px;
+
+        }
+    </style>
+</head>
+
+<body dir="rtl">
+
+    <div id="lore-events">
+        <div id="lore-line"></div>
+    </div>
+    <script src="./index.js"></script>
+</body>
+
+</html>
