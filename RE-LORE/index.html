@@ -4,7 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap"
+        rel="stylesheet">
+    <title>RE-LORE</title>
     <style>
         * {
             box-sizing: border-box;
@@ -16,6 +20,10 @@
             margin: 0;
             padding: 0px;
             position: relative;
+            margin-bottom: 50vh;
+            font-family: "Tajawal", sans-serif;
+            font-weight: 400;
+            font-style: normal;
         }
 
 
@@ -51,13 +59,30 @@
             padding: 20px;
             background: #444;
             color: white;
+
+
         }
+
 
 
         .lore-event:not(.tag) {
             margin: 0 20px;
             min-height: 200px;
             padding-inline-start: calc(min(200px, 35vw));
+
+            filter: blur(2px);
+            transition: 0.5s ease;
+        }
+
+        .lore-event.character {
+            min-height: 150px;
+            padding-inline-start: 150px;
+        }
+
+        .lore-event.inView {
+
+
+            filter: blur(0px);
         }
 
 
@@ -77,10 +102,13 @@
             max-width: 35vw;
             border-radius: 10px;
             object-fit: cover;
-            object-position: top center;
+            object-position: center top;
             border: 2px solid #444;
-
+            transform: rotateZ(0deg);
+            transform-origin: center;
         }
+
+
 
         .lore-event-title {
             font-size: 18px;
@@ -94,6 +122,79 @@
             padding: 10px;
 
         }
+
+        a {
+            color: blue;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        #character-dialog {
+            border: none;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+            max-height: 95vh;
+            position: fixed;
+            z-index: 10;
+
+        }
+
+        #character-dialog[open] {
+            display: flex;
+        }
+
+
+
+        #character-dialog::backdrop {
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .character-card-image {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12.5%;
+        }
+
+        /* if width<600px */
+        @media (max-width: 600px) {
+            #character-dialog[open] {
+                flex-direction: column;
+                /* center content */
+                align-items: center;
+                justify-content: center;
+            }
+
+            .character-card-image {
+                width: 150px;
+                height: 150px;
+            }
+
+        }
+
+        #close-dialog {
+            position: absolute;
+            top: 0;
+            inset-inline-end: 0;
+            padding: 15px;
+            background: none;
+            border: none;
+            outline: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .character-card-info {
+            padding: 20px;
+        }
+
+        .character-card-title {
+            font-size: 24px;
+            font-weight: bold;
+            padding-bottom: 20px;
+        }
     </style>
 </head>
 
@@ -102,6 +203,10 @@
     <div id="lore-events">
         <div id="lore-line"></div>
     </div>
+
+    <dialog id="character-dialog">
+    </dialog>
+
     <script src="./index.js"></script>
 </body>
 
