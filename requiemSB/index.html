@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resident Evil Requiem Soundboard 0.3</title>
+    <title>Resident Evil Requiem Soundboard 0.4</title>
     <style>
         body {
             font-family: sans-serif;
@@ -23,7 +23,7 @@
         }
 
         #logo::after {
-            content: "Soundboard";
+            content: "Soundboard 0.4";
             display: block;
             text-align: center;
             color: white;
@@ -84,7 +84,9 @@
 
         localStorage.setItem('clientID', clientID);
 
-        const API_KEY = 'AIzaSyB5FM0UrTbGauldO-5uMrcJZYjWTyCyfQI';
+
+        const PUBLIC_KEY = 'AIzaSyB5FM0UrTbGauldO-5uMrcJZYjWTyCyfQI';
+
         const PROJECT_ID = 'z-resident-evil';
 
 
@@ -116,7 +118,7 @@
 
 
         async function createOrUpdateDocument(collection, documentId, data) {
-            const url = `${BASE_URL}/${collection}/${documentId}?key=${API_KEY}`;
+            const url = `${BASE_URL}/${collection}/${documentId}?key=${PUBLIC_KEY}`;
 
             data = transformToFirestoreFormat(data);
 
@@ -143,17 +145,41 @@
         });
 
         let soundBites = [
-            { name: "Grace Ashcroft", src: "a/GraceAshcroft.webm", thumb: "a/GraceAshcroft.jpg" },
-            { name: "Wrenwood Hotel", src: "a/WrenwoodHotel.webm", thumb: "a/WrenwoodHotel.jpg" },
-            { name: "Face The Past", src: "a/FaceThePast.webm", thumb: "a/FaceThePast.jpg" },
+
             { name: "Miss Ashcroft", src: "a/MissAshcroft.webm", thumb: "a/MissAshcroft.jpg" },
             { name: "They Are Coming", src: "a/TheyAreComing.webm", thumb: "a/TheyAreComing.jpg" },
             { name: "Shhh", src: "a/Shhh.webm", thumb: "a/Shhh.jpg" },
             { name: "Stay Close", src: "a/StayClose.webm", thumb: "a/StayClose.jpg" },
             { name: "My Hope", src: "a/MyHope.webm", thumb: "a/MyHope.jpg" },
             { name: "I'm Scared", src: "a/ImScared.webm", thumb: "a/ImScared.jpg" },
+
+            { name: "Grace Ashcroft", src: "a/GraceAshcroft.webm", thumb: "a/GraceAshcroft.jpg" },
+            { name: "Wrenwood Hotel", src: "a/WrenwoodHotel.webm", thumb: "a/WrenwoodHotel.jpg" },
+            { name: "Face The Past", src: "a/FaceThePast.webm", thumb: "a/FaceThePast.jpg" },
+            { name: "Confront That Fear", src: "a/ConfrontThatFear.webm", thumb: "a/ConfrontThatFear.jpg" },
+
             { name: "Investigating Deaths", src: "a/InvestigatingDeaths.webm", thumb: "a/InvestigatingDeaths.jpg" },
+
+            { name: "Behinde That Painting", src: "a/BehindeThatPainting.webm", thumb: "a/BehindeThatPainting.jpg" },
+
             { name: "Stay Away", src: "a/StayAway.webm", thumb: "a/StayAway.jpg" },
+
+            { name: "Come In", src: "a/ComeIn.webm", thumb: "a/ComeIn.jpg" },
+
+            { name: "Watching You", src: "a/WatchingYou.webm", thumb: "a/WatchingYou.jpg" },
+            { name: "Unique", src: "a/Unique.webm", thumb: "a/Unique.jpg" },
+            { name: "Chosen One", src: "a/ChosenOne.webm", thumb: "a/ChosenOne.jpg" },
+
+            { name: "Who Are You", src: "a/WhoAreYou.webm", thumb: "a/WhoAreYou.jpg" },
+
+
+            { name: "So Much To Do", src: "a/SoMuchToDo.webm", thumb: "a/SoMuchToDo.jpg" },
+
+
+
+
+
+
 
             { name: "Think Grace Think", src: "a/ThinkGraceThink.webm", thumb: "a/ThinkGraceThink.jpg" },
 
@@ -164,12 +190,9 @@
             { name: "What The Hell", src: "a/WhatTheHell.webm", thumb: "a/WhatTheHell.jpg" },
             { name: "Come On", src: "a/ComeOn.webm", thumb: "a/ComeOn.jpg" },
             { name: "Let Go", src: "a/LetGo.webm", thumb: "a/LetGo.jpg" },
-            { name: "Watching You", src: "a/WatchingYou.webm", thumb: "a/WatchingYou.jpg" },
-            { name: "Unique", src: "a/Unique.webm", thumb: "a/Unique.jpg" },
-            { name: "Chosen One", src: "a/ChosenOne.webm", thumb: "a/ChosenOne.jpg" },
-
 
             { name: "Escaping Destiny", src: "a/EscapingDestiny.webm", thumb: "a/EscapingDestiny.jpg" },
+
             { name: "Seen S**t", src: "a/SeenShit.webm", thumb: "a/SeenShit.jpg" },
             { name: "Every One's Gone", src: "a/EveryOnesGone.webm", thumb: "a/EveryOnesGone.jpg" },
 
